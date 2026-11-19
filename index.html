@@ -23,6 +23,36 @@ input{font:inherit}
 .btn.sm{padding:7px 12px;font-size:.85rem;border-radius:10px}
 .btn.ghost{background:transparent}
 .btn:disabled{opacity:.4}
+.hright{display:flex;align-items:center;gap:8px}
+.lang{display:inline-flex;background:var(--card2);border:1px solid var(--line);border-radius:10px;overflow:hidden;flex:none}
+.lang button{background:none;padding:6px 9px;font-size:.78rem;font-weight:700;color:var(--mut)}
+.lang button.on{background:var(--acc);color:#1b1b1b}
+.homehead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.lobbyfoot{display:flex;justify-content:center;margin-top:28px}
+.hist{display:flex;flex-direction:column;gap:6px;max-width:520px}
+.hrow{display:flex;justify-content:space-between;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 12px;font-size:.9rem}
+.p0c{color:var(--p0)} .p1c{color:var(--p1)}
+.toast{position:fixed;left:50%;top:70px;transform:translate(-50%,-12px);background:#1f2a3a;color:#e6f0ff;border:1px solid #33465f;padding:10px 16px;border-radius:12px;font-size:.92rem;z-index:30;opacity:0;transition:opacity .3s,transform .3s;box-shadow:0 10px 30px rgba(0,0,0,.4);max-width:90vw;text-align:center;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.scoreov{position:fixed;inset:0;background:rgba(8,9,13,.82);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:25;display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;transition:opacity .35s}
+.scoreov.show{opacity:1}
+.sobox{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 22px 16px;width:min(100%,440px);text-align:center;display:flex;flex-direction:column;gap:12px;transform:scale(.9);transition:transform .35s cubic-bezier(.2,1.4,.4,1);max-height:92vh;overflow:auto}
+.scoreov.show .sobox{transform:scale(1)}
+.scoreov.won .sobox{border-color:var(--acc);box-shadow:0 0 60px rgba(255,210,63,.25)}
+.sogame{color:var(--mut);font-size:.9rem}
+.sotitle{font-size:1.7rem;font-weight:800}
+.sosum{color:var(--mut)} .sosum b{color:var(--tx)}
+.soscore{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:6px}
+.sop{display:flex;flex-direction:column;align-items:center;min-width:110px}
+.son{font-weight:600;max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sos{font-size:3.4rem;font-weight:800;line-height:1.05}
+.sop.p0 .sos{color:var(--p0)} .sop.p1 .sos{color:var(--p1)}
+.socolon{font-size:2.4rem;color:var(--mut);font-weight:800}
+.solabel{font-size:.78rem;color:var(--mut);margin-top:-6px}
+.sobox .hist{margin:0 auto;width:100%} .sobox .hrow{font-size:.82rem;padding:6px 10px}
+.sobox .rbtns{margin-top:6px}
+.sobox .linkbtn{align-self:center}
+@media(max-width:560px){header{gap:8px}.sc{order:5;width:100%;justify-content:center;margin-left:0}.hright{margin-left:auto}}
 .btn.danger{background:#3a1c22;border-color:#6b2a35;color:#ffb3bc}
 .ghead{justify-content:space-between}
 .notebar{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:12px;padding:10px 14px;margin-bottom:16px;font-size:.92rem}
@@ -89,18 +119,18 @@ main{max-width:980px;margin:0 auto;padding:16px 12px 60px}
 .mut2{font-size:1.1rem}
 .good{color:#1d8a4a;font-weight:700} .bad{color:var(--ink0)}
 /* TTT */
-.ttt{display:grid;grid-template-columns:repeat(3,1fr);width:min(86vw,340px);aspect-ratio:1;padding:18px}
-.ttt .cell{background:transparent;border:0;padding:0;display:flex;align-items:center;justify-content:center}
+.ttt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));width:min(86vw,340px);aspect-ratio:1;padding:18px}
+.ttt .cell{background:transparent;border:0;padding:0;display:flex;align-items:center;justify-content:center;min-width:0;min-height:0;overflow:hidden}
 .ttt .cell:nth-child(3n+1),.ttt .cell:nth-child(3n+2){border-right:3px solid #2c3d7c}
 .ttt .cell:nth-child(-n+6){border-bottom:3px solid #2c3d7c}
-.ttt .mk{font-size:min(22vw,92px);font-weight:700;line-height:1}
+.ttt .mk{font-size:min(22vw,92px);font-weight:700;line-height:.8;display:block}
 .cell.win,.sb.win{background:rgba(255,210,63,.45)}
 .ttt .cell:not(:disabled):hover{background:rgba(255,210,63,.18)}
 /* UTTT */
-.uttt{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;padding:10px;width:min(94vw,450px);aspect-ratio:1}
-.sb{position:relative;display:grid;grid-template-columns:repeat(3,1fr);border:2px solid rgba(44,61,124,.35);border-radius:5px}
+.uttt{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:7px;padding:10px;width:min(94vw,450px);aspect-ratio:1}
+.sb{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));min-width:0;min-height:0;border:2px solid rgba(44,61,124,.35);border-radius:5px}
 .sb.act{background:rgba(255,210,63,.3);border-color:#d49b00}
-.sb .cell{border:1px solid #a9bbdb;background:transparent;font-family:Caveat;font-size:clamp(17px,5.5vw,28px);font-weight:700;padding:0;line-height:1}
+.sb .cell{min-width:0;min-height:0;overflow:hidden;border:1px solid #a9bbdb;background:transparent;font-family:Caveat;font-size:clamp(17px,5.5vw,28px);font-weight:700;padding:0;line-height:1}
 .sb .cell:not(:disabled):hover{background:rgba(255,210,63,.35)}
 .sb.done .cell{opacity:.22}
 .sb .cell.last{background:rgba(63,169,255,.18)}
@@ -117,7 +147,7 @@ main{max-width:980px;margin:0 auto;padding:16px 12px 60px}
 @keyframes drop{from{transform:translateY(calc((var(--r) + 1) * -115%))}to{transform:none}}
 .pc.win,.st.win{outline:4px solid #fff;outline-offset:-2px;animation:pulse 1s infinite}
 /* Gomoku */
-.go{display:grid;grid-template-columns:repeat(15,1fr);width:min(96vw,580px);aspect-ratio:1;background:linear-gradient(135deg,#e2b971,#d4a55a);padding:2.5%;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.go{display:grid;grid-template-columns:repeat(15,minmax(0,1fr));grid-template-rows:repeat(15,minmax(0,1fr));width:min(96vw,580px);aspect-ratio:1;background:linear-gradient(135deg,#e2b971,#d4a55a);padding:2.5%;border-radius:8px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
 .pt{position:relative;background:transparent;padding:0;border:0}
 .pt::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#6b4a1a}
 .pt::after{content:'';position:absolute;top:0;bottom:0;left:50%;width:1px;background:#6b4a1a}
@@ -194,6 +224,13 @@ main{max-width:980px;margin:0 auto;padding:16px 12px 60px}
 .fb i.b{background:#111;box-shadow:0 0 0 1px #000}
 .fb i.w{background:#fff}
 .pal{display:flex;gap:8px;margin:4px 0}
+.fb2{display:flex;gap:5px;margin-left:8px}
+.fbg,.fby{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;font-weight:800;font-size:.85rem;color:#14210f;box-shadow:inset 0 -2px 3px rgba(0,0,0,.25)}
+.fbg{background:#3ddc84} .fby{background:#ffd21f;color:#3a2a00}
+.mmrow.solved{background:rgba(61,220,132,.3);box-shadow:0 0 0 2px #3ddc84}
+.mmlegend{display:flex;flex-direction:column;gap:5px;font-size:.78rem;color:#f2dcc0;margin-bottom:4px;align-self:stretch}
+.mmlegend>span{display:flex;align-items:center;gap:6px}
+.mmlegend .fbg,.mmlegend .fby{width:20px;height:20px;font-size:.75rem}
 .pal .pc{width:38px;height:38px;border-radius:50%;border:2px solid rgba(255,255,255,.6);box-shadow:0 3px 6px rgba(0,0,0,.4)}
 .mmbox .good{color:#c9ffd9} .mmbox .bad{color:#ffd0d0}
 .mmhint{font-size:.8rem;color:#f2dcc0;max-width:300px;text-align:center}
@@ -266,6 +303,10 @@ const sess = {
   del(k) { try { sessionStorage.removeItem('ms_' + k); } catch (e) {} }
 };
 const INK = ['#d0313d', '#1f4fbf'];
+let LANG = store.get('lang', null) || ((navigator.language || 'de').toLowerCase().startsWith('de') ? 'de' : 'en');
+const tr = (de, en) => LANG === 'en' ? en : de;
+const L = x => x && typeof x === 'object' ? (x[LANG] || x.de) : x;
+document.documentElement.lang = LANG;
 
 /* =========================================================
    Zustand
@@ -399,12 +440,18 @@ function sendState() { if (net && isHost && S) net.sendState(JSON.stringify(S));
 function onStateStr(str) {
   if (isHost) return;
   if (str == null) { // Raum wurde gelöscht
-    if (S) { leaveRoom(); homeMsg('Der Raum wurde vom Ersteller geschlossen.'); }
+    if (S) { leaveRoom(); homeMsg(tr('Der Raum wurde geschlossen.', 'The room was closed.')); }
     return;
   }
   let st; try { st = JSON.parse(str); } catch (e) { return; }
   if (!st || !st.hs) return;
   lastStateAt = Date.now();
+  if (st.closed) { // jemand hat den Raum geschlossen
+    const who = st.closed.by === ME.id ? null : ((st.players || []).find(p => p.id === st.closed.by) || {}).name;
+    leaveRoom();
+    homeMsg(st.closed.by === ME.id ? tr('Du hast den Raum geschlossen.', 'You closed the room.') : who ? tr(`${who} hat den Raum geschlossen.`, `${who} closed the room.`) : tr('Der Raum wurde geschlossen.', 'The room was closed.'));
+    return;
+  }
   if (S && S.hs === st.hs && st.v <= S.v) return;
   S = st; render();
 }
@@ -430,7 +477,7 @@ function handleAction(a, from) {
   const p = pidx(from);
   switch (a.t) {
     case 'hello': {
-      const name = String(a.name || '').slice(0, 16) || 'Spieler';
+      const name = String(a.name || '').slice(0, 16) || 'Player';
       const pl = S.players.find(x => x.id === from);
       if (pl) { if (pl.name === name) { sendState(); return; } pl.name = name; }
       else if (S.players.length < 2) { S.players.push({ id: from, name }); S.scores[from] = 0; }
@@ -445,6 +492,14 @@ function handleAction(a, from) {
     case 'again':
       if (p < 0 || !S.game || !S.g.over) return;
       startGame(S.game, S.opts || {}); commit(); return;
+    case 'close': {
+      if (p < 0 || S.closed) return;
+      S.closed = { by: from };
+      const who = from === ME.id ? null : (S.players[p] || {}).name;
+      commit();
+      setTimeout(() => { leaveRoom(); homeMsg(who ? tr(`${who} hat den Raum geschlossen.`, `${who} closed the room.`) : tr('Du hast den Raum geschlossen.', 'You closed the room.')); }, 800);
+      return;
+    }
     case 'menu':
       if (p < 0 || !S.game) return;
       S.note = S.g && !S.g.over ? { by: from, game: S.game, t: Date.now() } : null;
@@ -468,6 +523,7 @@ function afterMove() {
   if (g.over && !g.scored) {
     g.scored = true;
     if (!g.draw && g.winner != null && S.players[g.winner]) S.scores[S.players[g.winner].id]++;
+    S.hist = (S.hist || []).concat([{ g: S.game, w: g.draw || g.winner == null ? -1 : g.winner, n: S.players.map(p => p.name) }]).slice(-20);
   }
 }
 
@@ -480,20 +536,20 @@ const newCode = () => Array.from({ length: 4 }, () => CODE_CH[Math.floor(Math.ra
 async function connect(code, asHost, restored, attempt = 0) {
   if (connecting && !attempt) return;
   connecting = true;
-  homeMsg('Verbinde …');
+  homeMsg(tr('Verbinde …', 'Connecting …'));
   let t = null, err = null;
   const inClaude = !!(window.claude && window.claude.use);
   if (!inClaude) { try { t = await makeFirebaseTransport(code, asHost); } catch (e) { err = e; } }
   if (!t && err && err.message === 'taken' && asHost && attempt < 5) return connect(newCode(), true, null, attempt + 1);
   if (!t && err && err.message === 'notfound') {
     connecting = false; sess.del('room');
-    homeMsg('Kein Raum mit diesem Code gefunden. Stimmt der Code?');
+    homeMsg(tr('Kein Raum mit diesem Code gefunden. Stimmt der Code?', 'No room found with this code. Is the code right?'));
     render(); return;
   }
   if (!t) { const api = await roomApiP; if (api) { try { t = chunked(await makeRoomRaw(api, code)); } catch (e) {} } }
   if (!t) { try { t = chunked(makeLocalRaw(code)); } catch (e) {} }
   connecting = false;
-  if (!t) { homeMsg('Verbindung nicht möglich. Bist du online?'); return; }
+  if (!t) { homeMsg(tr('Verbindung nicht möglich. Bist du online?', 'Could not connect. Are you online?')); return; }
   net = t; isHost = asHost; joinAt = Date.now(); lastStateAt = Date.now(); lastBeat = Date.now();
   t.onState(onStateStr);
   t.onAct(onActMsg);
@@ -504,7 +560,7 @@ async function connect(code, asHost, restored, attempt = 0) {
   if (asHost) {
     S = (restored && restored.code === code) ? restored : {
       hs: rid(6), v: 1, code, host: ME.id,
-      players: [{ id: ME.id, name: ME.name || 'Spieler 1' }], spec: [],
+      players: [{ id: ME.id, name: ME.name || 'Player 1' }], spec: [],
       scores: { [ME.id]: 0 }, game: null, g: null, opts: null, next: null, note: null
     };
     commit();
@@ -543,8 +599,8 @@ const xoPiece = (g, p) => `<span class="hand mk-s" style="color:${INK[p]}">${XO(
 
 /* ---------- Tic-Tac-Toe ---------- */
 GAMES.ttt = {
-  name: 'Tic-Tac-Toe', icon: '❌', desc: 'Drei in einer Reihe', turn: true, piece: xoPiece,
-  rules: 'Ihr setzt abwechselnd X und O. Wer zuerst drei eigene Zeichen in einer Reihe hat – waagerecht, senkrecht oder diagonal – gewinnt. Wer anfängt, spielt X.',
+  name: { de: "Tic-Tac-Toe", en: "Tic-Tac-Toe" }, icon: '❌', desc: { de: "Drei in einer Reihe", en: "Three in a row" }, turn: true, piece: xoPiece,
+  rules: { de: "Ihr setzt abwechselnd X und O. Wer zuerst drei eigene Zeichen in einer Reihe hat \u2013 waagerecht, senkrecht oder diagonal \u2013 gewinnt. Wer anf\u00e4ngt, spielt X.", en: "Take turns placing X and O. The first to get three of their own marks in a row \u2013 horizontally, vertically or diagonally \u2013 wins. Whoever starts plays X." },
   init: (o, first) => ({ b: Array(9).fill(0), turn: first, first }),
   act(g, a, p) {
     if (a.t !== 'm' || p !== g.turn) return false;
@@ -565,8 +621,8 @@ GAMES.ttt = {
 
 /* ---------- Ultimate Tic-Tac-Toe ---------- */
 GAMES.uttt = {
-  name: 'Ultimate Tic-Tac-Toe', icon: '#️⃣', desc: '9 Felder in 9 Feldern', turn: true, piece: xoPiece,
-  rules: 'Das große Feld besteht aus 9 kleinen Tic-Tac-Toe-Feldern. Wer ein kleines Feld gewinnt, bekommt es. Wer drei kleine Felder in einer Reihe hat, gewinnt das Spiel.<br><b>Der Trick:</b> Die Position deines Zuges im kleinen Feld bestimmt, in welchem großen Feld dein Gegner als Nächstes spielen muss (gelb markiert). Ist dieses Feld schon entschieden oder voll, darf er frei wählen.',
+  name: { de: "Ultimate Tic-Tac-Toe", en: "Ultimate Tic-Tac-Toe" }, icon: '#️⃣', desc: { de: "9 Felder in 9 Feldern", en: "A board made of 9 boards" }, turn: true, piece: xoPiece,
+  rules: { de: "Das gro\u00dfe Feld besteht aus 9 kleinen Tic-Tac-Toe-Feldern. Wer ein kleines Feld gewinnt, bekommt es. Wer drei kleine Felder in einer Reihe hat, gewinnt das Spiel.<br><b>Der Trick:</b> Die Position deines Zuges im kleinen Feld bestimmt, in welchem gro\u00dfen Feld dein Gegner als N\u00e4chstes spielen muss (gelb markiert). Ist dieses Feld schon entschieden oder voll, darf er frei w\u00e4hlen.", en: "The big board is made of 9 small tic-tac-toe boards. Win a small board to claim it. Claim three small boards in a row to win the game.<br><b>The trick:</b> the square you play in a small board decides which big board your opponent must play in next (highlighted in yellow). If that board is already decided or full, they may choose freely." },
   init: (o, first) => ({ b: Array(81).fill(0), sb: Array(9).fill(0), nb: -1, turn: first, first, last: -1 }),
   act(g, a, p) {
     if (a.t !== 'm' || p !== g.turn) return false;
@@ -603,9 +659,9 @@ GAMES.uttt = {
 /* ---------- Vier gewinnt ---------- */
 const C4C = ['#e3283a', '#ffd21f'];
 GAMES.c4 = {
-  name: 'Vier gewinnt', icon: '🔴', desc: 'Steine einwerfen, vier in einer Reihe', turn: true,
+  name: { de: "Vier gewinnt", en: "Connect Four" }, icon: '🔴', desc: { de: "Steine einwerfen, vier in einer Reihe", en: "Drop discs, four in a row" }, turn: true,
   piece: (g, p) => `<span class="dot" style="width:16px;height:16px;background:${C4C[p]};vertical-align:middle"></span>`,
-  rules: 'Ihr werft abwechselnd Steine von oben in eine Spalte – sie fallen nach unten. Wer zuerst vier eigene Steine in einer Reihe hat (waagerecht, senkrecht oder diagonal), gewinnt.',
+  rules: { de: "Ihr werft abwechselnd Steine von oben in eine Spalte \u2013 sie fallen nach unten. Wer zuerst vier eigene Steine in einer Reihe hat (waagerecht, senkrecht oder diagonal), gewinnt.", en: "Take turns dropping discs into a column \u2013 they fall to the bottom. The first to get four of their own discs in a row (horizontally, vertically or diagonally) wins." },
   init: (o, first) => ({ b: Array(42).fill(0), turn: first, first, last: -1 }),
   act(g, a, p) {
     if (a.t !== 'd' || p !== g.turn) return false;
@@ -635,9 +691,9 @@ GAMES.c4 = {
 
 /* ---------- Fünf gewinnt ---------- */
 GAMES.gomoku = {
-  name: 'Fünf gewinnt', icon: '⚫', desc: 'Fünf Steine in einer Reihe', turn: true,
+  name: { de: "F\u00fcnf gewinnt", en: "Gomoku" }, icon: '⚫', desc: { de: "F\u00fcnf Steine in einer Reihe", en: "Five stones in a row" }, turn: true,
   piece: (g, p) => `<span class="stone-s st s${p}" style="position:relative;inset:auto"></span>`,
-  rules: 'Auf einem 15×15-Brett setzt ihr abwechselnd Steine auf die Kreuzungspunkte. Wer zuerst fünf (oder mehr) eigene Steine in einer Reihe hat – waagerecht, senkrecht oder diagonal – gewinnt. Schwarz fängt an.',
+  rules: { de: "Auf einem 15\u00d715-Brett setzt ihr abwechselnd Steine auf die Kreuzungspunkte. Wer zuerst f\u00fcnf (oder mehr) eigene Steine in einer Reihe hat \u2013 waagerecht, senkrecht oder diagonal \u2013 gewinnt. Schwarz f\u00e4ngt an.", en: "On a 15\u00d715 board you take turns placing stones on the intersections. The first to get five (or more) of their own stones in a row \u2013 horizontally, vertically or diagonally \u2013 wins. Black starts." },
   init: (o, first) => ({ b: Array(225).fill(0), turn: first, first, last: -1 }),
   act(g, a, p) {
     if (a.t !== 'm' || p !== g.turn) return false;
@@ -664,7 +720,8 @@ GAMES.gomoku = {
 GAMES.gomoku.piece = (g, p) => `<span class="stone-s" style="background:${p === g.first ? 'radial-gradient(circle at 35% 30%,#666,#111 60%)' : 'radial-gradient(circle at 35% 30%,#fff,#d8d8d8 70%)'}"></span>`;
 
 /* ---------- Stadt-Land-Fluss ---------- */
-const SLF_DEF = ['Stadt', 'Land', 'Fluss', 'Name', 'Tier', 'Beruf'];
+const slfDef = () => LANG === 'en' ? ['City', 'Country', 'River', 'Name', 'Animal', 'Job'] : ['Stadt', 'Land', 'Fluss', 'Name', 'Tier', 'Beruf'];
+const slfKey = () => LANG === 'en' ? 'slfCatsEn' : 'slfCats';
 const SLF_LETTERS = 'ABDEFGHIKLMNOPRSTUWZ';
 let slfL = { rid: null, vals: [], t0: 0, lastSend: 0 };
 function slfNewRound(g) {
@@ -688,35 +745,35 @@ function slfScore(g) {
   return pts;
 }
 GAMES.slf = {
-  name: 'Stadt-Land-Fluss', icon: '✏️', desc: '5 Buchstaben, eigene Kategorien',
-  rules: 'Pro Runde wird ein Buchstabe ausgelost. Schreibt zu jeder Kategorie ein Wort mit diesem Anfangsbuchstaben. Wer alles ausgefüllt hat, kann STOPP rufen – dann ist die Runde für beide vorbei (oder der Timer läuft ab, falls eingestellt).<br>Danach prüft ihr gemeinsam: Tippt auf ein Wort, das ihr nicht gelten lasst. Ein Wort zählt nur, wenn <b>beide</b> einen Haken gesetzt haben.<br><b>Punkte:</b> 10 für ein gültiges Wort, 5 wenn beide dasselbe Wort haben, 20 wenn nur einer etwas Gültiges hat. Nach 5 Runden gewinnt, wer mehr Punkte hat.',
+  name: { de: "Stadt-Land-Fluss", en: "Scattergories" }, icon: '✏️', desc: { de: "5 Buchstaben, eigene Kategorien", en: "5 letters, your own categories" },
+  rules: { de: "Pro Runde wird ein Buchstabe ausgelost. Schreibt zu jeder Kategorie ein Wort mit diesem Anfangsbuchstaben. Wer alles ausgef\u00fcllt hat, kann STOPP rufen \u2013 dann ist die Runde f\u00fcr beide vorbei (oder der Timer l\u00e4uft ab, falls eingestellt).<br>Danach pr\u00fcft ihr gemeinsam: Tippt auf ein Wort, das ihr nicht gelten lasst. Ein Wort z\u00e4hlt nur, wenn <b>beide</b> einen Haken gesetzt haben.<br><b>Punkte:</b> 10 f\u00fcr ein g\u00fcltiges Wort, 5 wenn beide dasselbe Wort haben, 20 wenn nur einer etwas G\u00fcltiges hat. Nach 5 Runden gewinnt, wer mehr Punkte hat.", en: "Each round a letter is drawn. Write a word starting with that letter for every category. Once you have filled in everything you can call STOP \u2013 the round ends for both of you (or the timer runs out, if set).<br>Then you check the answers together: tap any word you don't accept. A word only counts if <b>both</b> of you have ticked it.<br><b>Points:</b> 10 for a valid word, 5 if you both wrote the same word, 20 if only one of you has a valid word. After 5 rounds, the player with more points wins." },
   status(g, c) {
-    if (g.phase === 'write') return `Runde ${g.round}/${g.rounds} · Buchstabe <b>${g.letter}</b>`;
-    if (g.phase === 'collect') return 'STOPP! ✋';
-    if (g.phase === 'review') return 'Antworten prüfen';
+    if (g.phase === 'write') return tr(`Runde ${g.round}/${g.rounds} · Buchstabe <b>${g.letter}</b>`, `Round ${g.round}/${g.rounds} · Letter <b>${g.letter}</b>`);
+    if (g.phase === 'collect') return tr('STOPP! ✋', 'STOP! ✋');
+    if (g.phase === 'review') return tr('Antworten prüfen', 'Check the answers');
     return '';
   },
   opts: {
-    load: () => ({ cats: store.get('slfCats', SLF_DEF.slice()), timer: store.get('slfTimer', 0) }),
-    save: st => { store.set('slfCats', st.cats); store.set('slfTimer', st.timer); },
-    out: st => ({ cats: st.cats.length ? st.cats : SLF_DEF.slice(), timer: st.timer }),
+    load: () => ({ cats: store.get(slfKey(), slfDef()), timer: store.get('slfTimer', 0) }),
+    save: st => { store.set(slfKey(), st.cats); store.set('slfTimer', st.timer); },
+    out: st => ({ cats: st.cats.length ? st.cats : slfDef(), timer: st.timer }),
     render(body, st, draw) {
-      body.innerHTML = `<div class="opt"><div>Kategorien (${st.cats.length})</div>
-        <div class="chips">${st.cats.map((c, i) => `<span class="chip">${esc(c)}<button data-del="${i}" title="Entfernen">×</button></span>`).join('') || '<span class="mut sm">Keine – füge welche hinzu.</span>'}</div>
-        <div class="addrow"><input id="catin" maxlength="20" placeholder="Neue Kategorie, z. B. Fußballverein"><button class="btn sm" id="catadd">Hinzufügen</button></div>
-        <button class="linkbtn" id="catreset">Standard-Kategorien wiederherstellen</button></div>
-        <div class="opt"><div>Zeitlimit pro Runde</div><div class="seg">${[[0, 'Aus'], [60, '1 Min'], [90, '1:30'], [120, '2 Min'], [180, '3 Min'], [300, '5 Min']].map(([v, l]) => `<button data-timer="${v}" class="${st.timer === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>
-        <p class="mut sm">Eine Partie hat 5 Runden. Ohne Zeitlimit endet eine Runde, wenn jemand STOPP ruft.</p>`;
+      body.innerHTML = `<div class="opt"><div>${tr('Kategorien', 'Categories')} (${st.cats.length})</div>
+        <div class="chips">${st.cats.map((c, i) => `<span class="chip">${esc(c)}<button data-del="${i}" title="${tr('Entfernen', 'Remove')}">×</button></span>`).join('') || `<span class="mut sm">${tr('Keine – füge welche hinzu.', 'None – add some.')}</span>`}</div>
+        <div class="addrow"><input id="catin" maxlength="20" placeholder="${tr('Neue Kategorie, z. B. Fußballverein', 'New category, e.g. Football club')}"><button class="btn sm" id="catadd">${tr('Hinzufügen', 'Add')}</button></div>
+        <button class="linkbtn" id="catreset">${tr('Standard-Kategorien wiederherstellen', 'Restore default categories')}</button></div>
+        <div class="opt"><div>${tr('Zeitlimit pro Runde', 'Time limit per round')}</div><div class="seg">${[[0, tr('Aus', 'Off')], [60, '1 Min'], [90, '1:30'], [120, '2 Min'], [180, '3 Min'], [300, '5 Min']].map(([v, l]) => `<button data-timer="${v}" class="${st.timer === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>
+        <p class="mut sm">${tr('Eine Partie hat 5 Runden. Ohne Zeitlimit endet eine Runde, wenn jemand STOPP ruft.', 'A match has 5 rounds. Without a time limit, a round ends when someone calls STOP.')}</p>`;
       const add = () => { const inp = $('#catin', body); const v = inp.value.trim().slice(0, 20); if (v && st.cats.length < 30 && !st.cats.includes(v)) { st.cats.push(v); draw(); $('#catin', body).focus(); } };
       $('#catadd', body).onclick = add;
       $('#catin', body).onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); add(); } };
-      $('#catreset', body).onclick = () => { st.cats = SLF_DEF.slice(); draw(); };
+      $('#catreset', body).onclick = () => { st.cats = slfDef(); draw(); };
       body.querySelectorAll('[data-del]').forEach(b => b.onclick = () => { st.cats.splice(+b.dataset.del, 1); draw(); });
       body.querySelectorAll('[data-timer]').forEach(b => b.onclick = () => { st.timer = +b.dataset.timer; draw(); });
     }
   },
   init(o, first) {
-    const cats = (Array.isArray(o.cats) && o.cats.length ? o.cats : SLF_DEF).map(x => String(x).slice(0, 20)).slice(0, 30);
+    const cats = (Array.isArray(o.cats) && o.cats.length ? o.cats : slfDef()).map(x => String(x).slice(0, 20)).slice(0, 30);
     const g = { cats, timer: Math.min(600, Math.max(0, o.timer | 0)), rounds: 5, round: 0, used: [], hist: [], tot: [0, 0], first };
     slfNewRound(g);
     return g;
@@ -758,6 +815,7 @@ GAMES.slf = {
     }
     return false;
   },
+  summary: (g, c) => `${tr('Punkte', 'Points')}: ${esc(c.names[0])} <b>${g.tot[0]}</b> – <b>${g.tot[1]}</b> ${esc(c.names[1])}`,
   hostTick(g) {
     if (g.phase === 'write' && g.timer && Date.now() - g.t0 >= g.timer * 1000) { g.phase = 'collect'; g.stopBy = -1; return true; }
     return false;
@@ -792,22 +850,22 @@ GAMES.slf = {
       const writing = cur.phase === 'write' && me >= 0;
       btn.disabled = !writing || !full;
       el.querySelectorAll('.sin').forEach(i => i.disabled = !writing);
-      if (cur.phase === 'collect') msg.innerHTML = cur.stopBy === -1 ? '⏰ Die Zeit ist um! Antworten werden eingesammelt …'
-        : `✋ ${cur.stopBy === me ? 'Du hast' : esc(c.names[cur.stopBy]) + ' hat'} STOPP gerufen! Antworten werden eingesammelt …`;
-      else if (me < 0) msg.textContent = 'Du schaust zu.';
-      else msg.textContent = full ? 'Alles ausgefüllt – ruf STOPP!' : 'Fülle alle Felder aus, dann kannst du STOPP rufen.';
+      if (cur.phase === 'collect') msg.innerHTML = cur.stopBy === -1 ? tr('⏰ Die Zeit ist um! Antworten werden eingesammelt …', '⏰ Time is up! Collecting answers …')
+        : (cur.stopBy === me ? tr('✋ Du hast STOPP gerufen! Antworten werden eingesammelt …', '✋ You called STOP! Collecting answers …') : tr(`✋ ${esc(c.names[cur.stopBy])} hat STOPP gerufen! Antworten werden eingesammelt …`, `✋ ${esc(c.names[cur.stopBy])} called STOP! Collecting answers …`));
+      else if (me < 0) msg.textContent = tr('Du schaust zu.', 'You are watching.');
+      else msg.textContent = full ? tr('Alles ausgefüllt – ruf STOPP!', 'All filled in – call STOP!') : tr('Fülle alle Felder aus, dann kannst du STOPP rufen.', 'Fill in every field, then you can call STOP.');
     };
     if (el.dataset.k !== key) {
       el.dataset.k = key; el.onclick = null;
       const last = g.hist.length ? g.hist[g.hist.length - 1] : null;
       el.innerHTML = `<div class="paper margin sheet">
         <div class="shead"><div class="letter">${g.letter}</div><div class="sinfo">
-          <div>Runde ${g.round} von ${g.rounds}</div>
-          <div class="tot">Punkte: ${esc(c.names[0])} ${g.tot[0]} · ${esc(c.names[1])} ${g.tot[1]}</div>
-          ${last ? `<div class="lastr">Letzte Runde (${last.l}): ${esc(c.names[0])} +${last.s[0]}, ${esc(c.names[1])} +${last.s[1]}</div>` : ''}
+          <div>${tr(`Runde ${g.round} von ${g.rounds}`, `Round ${g.round} of ${g.rounds}`)}</div>
+          <div class="tot">${tr('Punkte', 'Points')}: ${esc(c.names[0])} ${g.tot[0]} · ${esc(c.names[1])} ${g.tot[1]}</div>
+          ${last ? `<div class="lastr">${tr('Letzte Runde', 'Last round')} (${last.l}): ${esc(c.names[0])} +${last.s[0]}, ${esc(c.names[1])} +${last.s[1]}</div>` : ''}
           ${g.timer ? '<div id="slftimer" class="timer"></div>' : ''}</div></div>
         ${g.cats.map((cat, i) => `<label class="srow"><span class="scat">${esc(cat)}</span><input class="sin" id="slf${i}" data-i="${i}" autocomplete="off" autocorrect="off" autocapitalize="words" spellcheck="false" maxlength="40" placeholder="${g.letter} …"></label>`).join('')}
-        <div class="sfoot"><button class="btn stop" id="slfstop">STOPP!</button><div class="mut2" id="slfmsg"></div></div></div>`;
+        <div class="sfoot"><button class="btn stop" id="slfstop">${tr('STOPP!', 'STOP!')}</button><div class="mut2" id="slfmsg"></div></div></div>`;
       el.querySelectorAll('.sin').forEach(inp => {
         const i = +inp.dataset.i;
         inp.value = slfL.vals[i] || '';
@@ -830,14 +888,14 @@ GAMES.slf = {
     const rs = [0, 1].map(q => pts[q].reduce((x, y) => x + y, 0));
     const other = me >= 0 ? esc(c.names[1 - me]) : '';
     el.innerHTML = `<div class="paper margin sheet">
-      <div class="shead"><div class="letter">${g.letter}</div><div class="sinfo"><div>Runde ${g.round} von ${g.rounds} – Antworten prüfen</div>
-        <div class="mut2">Tippe auf ein Wort, wenn du es nicht gelten lässt. Es zählt nur, wenn beide ✓ haben.</div></div></div>
-      <table class="rev"><tr><th></th><th style="color:${INK[0]}">${esc(c.names[0])}${me === 0 ? ' (du)' : ''}</th><th style="color:${INK[1]}">${esc(c.names[1])}${me === 1 ? ' (du)' : ''}</th></tr>
+      <div class="shead"><div class="letter">${g.letter}</div><div class="sinfo"><div>${tr(`Runde ${g.round} von ${g.rounds} – Antworten prüfen`, `Round ${g.round} of ${g.rounds} – check the answers`)}</div>
+        <div class="mut2">${tr('Tippe auf ein Wort, wenn du es nicht gelten lässt. Es zählt nur, wenn beide ✓ haben.', 'Tap a word if you don&#39;t accept it. It only counts if both have a ✓.')}</div></div></div>
+      <table class="rev"><tr><th></th><th style="color:${INK[0]}">${esc(c.names[0])}${me === 0 ? tr(' (du)', ' (you)') : ''}</th><th style="color:${INK[1]}">${esc(c.names[1])}${me === 1 ? tr(' (du)', ' (you)') : ''}</th></tr>
       ${g.cats.map((cat, ci) => `<tr><th class="scat">${esc(cat)}</th>${cell(0, ci)}${cell(1, ci)}</tr>`).join('')}
-      <tr class="sum"><th>Runde</th><td>${rs[0]}</td><td>${rs[1]}</td></tr>
-      <tr class="sum"><th>Gesamt</th><td>${g.tot[0] + rs[0]}</td><td>${g.tot[1] + rs[1]}</td></tr></table>
-      <div class="sfoot">${me < 0 ? '' : g.done[me] ? `<div>✓ Du bist fertig – warte auf ${other} …</div>` : `<button class="btn pri" id="slfdone" style="font-family:Inter,sans-serif">Alles geprüft ✓</button>`}
-      ${me >= 0 && g.done[1 - me] && !g.done[me] ? `<div class="mut2">${other} ist schon fertig.</div>` : ''}</div></div>`;
+      <tr class="sum"><th>${tr('Runde', 'Round')}</th><td>${rs[0]}</td><td>${rs[1]}</td></tr>
+      <tr class="sum"><th>${tr('Gesamt', 'Total')}</th><td>${g.tot[0] + rs[0]}</td><td>${g.tot[1] + rs[1]}</td></tr></table>
+      <div class="sfoot">${me < 0 ? '' : g.done[me] ? `<div>${tr(`✓ Du bist fertig – warte auf ${other} …`, `✓ You are done – waiting for ${other} …`)}</div>` : `<button class="btn pri" id="slfdone" style="font-family:Inter,sans-serif">${tr('Alles geprüft ✓', 'All checked ✓')}</button>`}
+      ${me >= 0 && g.done[1 - me] && !g.done[me] ? `<div class="mut2">${tr(`${other} ist schon fertig.`, `${other} is already done.`)}</div>` : ''}</div></div>`;
     el.onclick = e => {
       const b = e.target.closest('.ans[data-p]');
       if (b && !b.disabled) c.dispatch({ t: 'vote', p: +b.dataset.p, c: +b.dataset.c });
@@ -846,16 +904,17 @@ GAMES.slf = {
   },
   renderFinal(el, c, g) {
     el.dataset.k = ''; el.onclick = null;
-    el.innerHTML = `<div class="paper margin sheet"><div class="sinfo" style="margin-bottom:10px;font-size:1.6rem">Endstand nach ${g.rounds} Runden</div>
-      <table class="rev"><tr><th>Buchstabe</th><th style="color:${INK[0]}">${esc(c.names[0])}</th><th style="color:${INK[1]}">${esc(c.names[1])}</th></tr>
+    el.innerHTML = `<div class="paper margin sheet"><div class="sinfo" style="margin-bottom:10px;font-size:1.6rem">${tr(`Endstand nach ${g.rounds} Runden`, `Final score after ${g.rounds} rounds`)}</div>
+      <table class="rev"><tr><th>${tr('Buchstabe', 'Letter')}</th><th style="color:${INK[0]}">${esc(c.names[0])}</th><th style="color:${INK[1]}">${esc(c.names[1])}</th></tr>
       ${g.hist.map(h => `<tr><th class="scat">${h.l}</th><td>${h.s[0]}</td><td>${h.s[1]}</td></tr>`).join('')}
-      <tr class="sum"><th>Gesamt</th><td>${g.tot[0]}</td><td>${g.tot[1]}</td></tr></table></div>`;
+      <tr class="sum"><th>${tr('Gesamt', 'Total')}</th><td>${g.tot[0]}</td><td>${g.tot[1]}</td></tr></table></div>`;
   }
 };
 
 /* ---------- Schiffe versenken ---------- */
 const FLEET = [5, 4, 3, 3, 2];
-const SHIPNAME = { 5: 'Schlachtschiff', 4: 'Kreuzer', 3: 'Zerstörer', 2: 'U-Boot' };
+const SHIPNAMES = { de: { 5: 'Schlachtschiff', 4: 'Kreuzer', 3: 'Zerstörer', 2: 'U-Boot' }, en: { 5: 'Battleship', 4: 'Cruiser', 3: 'Destroyer', 2: 'Submarine' } };
+const shipName = l => SHIPNAMES[LANG][l];
 function shipCells(s) { const [r, c, l, hz] = s, o = []; for (let k = 0; k < l; k++) o.push(hz ? r * 10 + c + k : (r + k) * 10 + c); return o; }
 function fleetMap(ships) { const m = Array(100).fill(-1); (ships || []).forEach((s, k) => shipCells(s).forEach(i => m[i] = k)); return m; }
 function nb8(i) { const r = (i / 10) | 0, c = i % 10, o = []; for (let dr = -1; dr <= 1; dr++) for (let dc = -1; dc <= 1; dc++) { const R = r + dr, C = c + dc; if (R >= 0 && R < 10 && C >= 0 && C < 10) o.push(R * 10 + C); } return o; }
@@ -901,15 +960,15 @@ function bsGrid(id, cellFn, cls) {
 function sunkShips(ships, shots) { return (ships || []).map(s => shipCells(s).every(i => shots[i] === '1')); }
 let bsL = { gid: null, ships: [], hz: 1, msg: '' };
 GAMES.bs = {
-  name: 'Schiffe versenken', icon: '🚢', desc: 'Klassische Flotte auf 10×10',
-  rules: 'Jeder platziert seine Flotte geheim: 1 Schlachtschiff (5), 1 Kreuzer (4), 2 Zerstörer (3) und 1 U-Boot (2). Schiffe dürfen sich nicht berühren – auch nicht über Eck.<br>Dann schießt ihr abwechselnd aufs gegnerische Meer. <b>Bei einem Treffer darfst du nochmal schießen.</b> Ist ein Schiff versenkt, wird das Wasser drumherum automatisch markiert. Wer zuerst alle gegnerischen Schiffe versenkt, gewinnt.',
+  name: { de: "Schiffe versenken", en: "Battleship" }, icon: '🚢', desc: { de: "Klassische Flotte auf 10\u00d710", en: "Classic fleet on 10\u00d710" },
+  rules: { de: "Jeder platziert seine Flotte geheim: 1 Schlachtschiff (5), 1 Kreuzer (4), 2 Zerst\u00f6rer (3) und 1 U-Boot (2). Schiffe d\u00fcrfen sich nicht ber\u00fchren \u2013 auch nicht \u00fcber Eck.<br>Dann schie\u00dft ihr abwechselnd aufs gegnerische Meer. <b>Bei einem Treffer darfst du nochmal schie\u00dfen.</b> Ist ein Schiff versenkt, wird das Wasser drumherum automatisch markiert. Wer zuerst alle gegnerischen Schiffe versenkt, gewinnt.", en: "Each player secretly places a fleet: 1 battleship (5), 1 cruiser (4), 2 destroyers (3) and 1 submarine (2). Ships may not touch \u2013 not even diagonally.<br>Then you take turns firing at the enemy sea. <b>If you hit, you shoot again.</b> When a ship is sunk, the water around it is marked automatically. The first to sink all enemy ships wins." },
   status(g, c) {
     const nm = c.me >= 0 ? esc(c.names[1 - c.me]) : '';
-    if (g.phase === 'place') return c.me < 0 ? 'Die Flotten werden platziert …' : g.fleets[c.me] ? `Warte, bis ${nm} seine Flotte platziert hat …` : 'Platziere deine Flotte';
+    if (g.phase === 'place') return c.me < 0 ? tr('Die Flotten werden platziert …', 'The fleets are being placed …') : g.fleets[c.me] ? tr(`Warte, bis ${nm} seine Flotte platziert hat …`, `Waiting for ${nm} to place their fleet …`) : tr('Platziere deine Flotte', 'Place your fleet');
     let t = turnText(g, c, this);
     if (g.last) {
-      const who = g.last.p === c.me ? 'Du' : esc(c.names[g.last.p]);
-      t = `<span class="mut">${who}: ${g.last.sunk ? 'Versenkt! 💥' : g.last.hit ? 'Treffer! 🎯' : 'Wasser 💧'}</span> · ` + t;
+      const who = g.last.p === c.me ? tr('Du', 'You') : esc(c.names[g.last.p]);
+      t = `<span class="mut">${who}: ${g.last.sunk ? tr('Versenkt! 💥', 'Sunk! 💥') : g.last.hit ? tr('Treffer! 🎯', 'Hit! 🎯') : tr('Wasser 💧', 'Miss 💧')}</span> · ` + t;
     }
     return t;
   },
@@ -949,19 +1008,19 @@ GAMES.bs = {
     if (g.phase === 'place') {
       if (g.fleets[me] || c.me < 0) {
         const m = fleetMap(g.fleets[me]);
-        el.innerHTML = `<div class="bswrap"><div class="paper bsp"><h4>Deine Flotte</h4>${bsGrid('own', i => [m[i] >= 0 ? 'ship' : '', ''], '')}<div class="mut2">Warte auf ${nm} …</div></div></div>`;
+        el.innerHTML = `<div class="bswrap"><div class="paper bsp"><h4>${tr('Deine Flotte', 'Your fleet')}</h4>${bsGrid('own', i => [m[i] >= 0 ? 'ship' : '', ''], '')}<div class="mut2">${tr(`Warte auf ${nm} …`, `Waiting for ${nm} …`)}</div></div></div>`;
         el.onclick = null; return;
       }
       const m = fleetMap(bsL.ships), rem = bsRemaining(bsL.ships);
       const placedLens = bsL.ships.map(s => s[2]);
-      const flHtml = FLEET.map(l => { const k = placedLens.indexOf(l); if (k >= 0) { placedLens.splice(k, 1); return `<span class="done">${SHIPNAME[l]} (${l})</span>`; } return `<span>${SHIPNAME[l]} (${l})</span>`; }).join('');
-      el.innerHTML = `<div class="bswrap"><div class="paper bsp"><h4>Platziere deine Schiffe</h4>
+      const flHtml = FLEET.map(l => { const k = placedLens.indexOf(l); if (k >= 0) { placedLens.splice(k, 1); return `<span class="done">${shipName(l)} (${l})</span>`; } return `<span>${shipName(l)} (${l})</span>`; }).join('');
+      el.innerHTML = `<div class="bswrap"><div class="paper bsp"><h4>${tr('Platziere deine Schiffe', 'Place your ships')}</h4>
         <div class="fleetlist">${flHtml}</div>
         ${bsGrid('own', i => [m[i] >= 0 ? 'ship' : 'free', ''], 'click')}
-        <div class="bsctl"><button class="btn sm" id="bsrot">${bsL.hz ? '↔ waagerecht' : '↕ senkrecht'}</button><button class="btn sm" id="bsrnd">🎲 Zufällig</button><button class="btn sm" id="bsclr">Leeren</button></div>
+        <div class="bsctl"><button class="btn sm" id="bsrot">${bsL.hz ? tr('↔ waagerecht', '↔ horizontal') : tr('↕ senkrecht', '↕ vertical')}</button><button class="btn sm" id="bsrnd">${tr('🎲 Zufällig', '🎲 Random')}</button><button class="btn sm" id="bsclr">${tr('Leeren', 'Clear')}</button></div>
         <div class="err" id="bsmsg">${esc(bsL.msg)}</div>
-        <button class="btn pri" id="bsok" ${rem.length ? 'disabled' : ''}>Bereit!</button>
-        <div class="mut2" style="text-align:center;max-width:380px">${rem.length ? `Tippe auf ein Feld, um das nächste Schiff (<b>${SHIPNAME[rem[0]]}, ${rem[0]} Felder</b>) zu setzen.` : 'Alle Schiffe gesetzt!'} Tippe auf ein Schiff, um es wieder zu entfernen.</div></div></div>`;
+        <button class="btn pri" id="bsok" ${rem.length ? 'disabled' : ''}>${tr('Bereit!', 'Ready!')}</button>
+        <div class="mut2" style="text-align:center;max-width:380px">${rem.length ? tr(`Tippe auf ein Feld, um das nächste Schiff (<b>${shipName(rem[0])}, ${rem[0]} Felder</b>) zu setzen.`, `Tap a square to place the next ship (<b>${shipName(rem[0])}, ${rem[0]} squares</b>).`) : tr('Alle Schiffe gesetzt!', 'All ships placed!')} ${tr('Tippe auf ein Schiff, um es wieder zu entfernen.', 'Tap a ship to remove it.')}</div></div></div>`;
       el.onclick = e => {
         const t = e.target.closest('button'); if (!t) return;
         if (t.id === 'bsrot') { bsL.hz = 1 - bsL.hz; bsL.msg = ''; c.rerender(); return; }
@@ -974,7 +1033,7 @@ GAMES.bs = {
           const r = bsRemaining(bsL.ships); if (!r.length) return;
           const s = [(i / 10) | 0, i % 10, r[0], bsL.hz];
           if (canPlace(bsL.ships, s)) { bsL.ships.push(s); bsL.msg = ''; }
-          else bsL.msg = 'Passt da nicht – Schiffe dürfen nicht über den Rand ragen oder sich berühren.';
+          else bsL.msg = tr('Passt da nicht – Schiffe dürfen nicht über den Rand ragen oder sich berühren.', 'Doesn’t fit – ships may not stick out over the edge or touch each other.');
           c.rerender();
         }
       };
@@ -1002,11 +1061,11 @@ GAMES.bs = {
       if (s === '2') return ['water', '·'];
       return [cls, ''];
     };
-    const sunkList = (ships, flags) => ships.map((s, k) => `<span class="${flags[k] ? 'done' : ''}">${SHIPNAME[s[2]]} (${s[2]})</span>`).join('');
+    const sunkList = (ships, flags) => ships.map((s, k) => `<span class="${flags[k] ? 'done' : ''}">${shipName(s[2])} (${s[2]})</span>`).join('');
     el.innerHTML = `<div class="bswrap">
-      <div class="paper bsp"><h4>${c.me < 0 ? esc(c.names[opp]) + 's Meer' : 'Gegnerisches Meer'}</h4>${bsGrid('enemy', enemyCell, myTurn ? 'click' : '')}
+      <div class="paper bsp"><h4>${c.me < 0 ? tr(esc(c.names[opp]) + 's Meer', esc(c.names[opp]) + '’s sea') : tr('Gegnerisches Meer', 'Enemy sea')}</h4>${bsGrid('enemy', enemyCell, myTurn ? 'click' : '')}
         <div class="fleetlist">${sunkList(g.fleets[opp], es)}</div></div>
-      <div class="paper bsp"><h4>${c.me < 0 ? esc(c.names[me]) + 's Flotte' : 'Deine Flotte'}</h4>${bsGrid('own', ownCell, 'small')}</div></div>`;
+      <div class="paper bsp"><h4>${c.me < 0 ? tr(esc(c.names[me]) + 's Flotte', esc(c.names[me]) + '’s fleet') : tr('Deine Flotte', 'Your fleet')}</h4>${bsGrid('own', ownCell, 'small')}</div></div>`;
     el.onclick = e => { const t = e.target.closest('#enemy .bc.free'); if (t && myTurn) c.dispatch({ t: 'shot', i: +t.dataset.i }); };
   }
 };
@@ -1023,15 +1082,16 @@ function mmFeedback(code, guess) {
 }
 const validCode = c => Array.isArray(c) && c.length === 4 && c.every(x => Number.isInteger(x) && x >= 0 && x < 6);
 GAMES.mm = {
-  name: 'Code knacken', icon: '🎨', desc: 'Mastermind – Farbcode erraten',
-  rules: 'Jeder legt einen geheimen Code aus 4 Farben fest (Farben dürfen doppelt vorkommen). Dann versucht ihr <b>gleichzeitig</b>, den Code des anderen zu knacken – ihr habt jeweils 10 Versuche.<br>Nach jedem Versuch gibt es Hinweise: <b>● schwarz</b> = richtige Farbe am richtigen Platz, <b>○ weiß</b> = richtige Farbe, aber falscher Platz. Welcher Stift zu welcher Farbe gehört, wird nicht verraten!<br>Wer weniger Versuche braucht, gewinnt.',
+  name: { de: "Code knacken", en: "Code Breaker" }, icon: '🎨', desc: { de: "Mastermind \u2013 Farbcode erraten", en: "Mastermind \u2013 crack the color code" },
+  rules: { de: "Jeder legt einen geheimen Code aus 4 Farben fest (Farben d\u00fcrfen doppelt vorkommen). Dann versucht ihr <b>gleichzeitig</b>, den Code des anderen zu knacken \u2013 ihr habt jeweils 10 Versuche.<br>Nach jedem Versuch gibt es Hinweise: <b>\ud83d\udfe2 Zahl</b> = so viele Farben sind richtig <b>und</b> am richtigen Platz, <b>\ud83d\udfe1 Zahl</b> = so viele Farben kommen im Code vor, stehen aber am falschen Platz. Welche Farben gemeint sind, wird nicht verraten!<br>Wer weniger Versuche braucht, gewinnt.", en: "Each of you sets a secret code of 4 colors (colors may repeat). Then you <b>both</b> try to crack the other's code at the same time \u2013 you each have 10 tries.<br>After every try you get hints: <b>\ud83d\udfe2 number</b> = this many colors are right <b>and</b> in the right place, <b>\ud83d\udfe1 number</b> = this many colors appear in the code but are in the wrong place. Which colors are meant is not revealed!<br>Whoever needs fewer tries wins." },
   status(g, c) {
-    if (c.me < 0) return 'Du schaust zu.';
+    if (c.me < 0) return tr('Du schaust zu.', 'You are watching.');
     const nm = esc(c.names[1 - c.me]);
-    if (g.phase === 'set') return g.codes[c.me] ? `Warte auf ${nm} …` : 'Lege deinen Geheimcode fest';
-    if (mmFin(g, c.me)) return `Warte, bis ${nm} fertig ist …`;
-    return `<span class="yourturn">Knacke ${nm}s Code!</span>`;
+    if (g.phase === 'set') return g.codes[c.me] ? tr(`Warte auf ${nm} …`, `Waiting for ${nm} …`) : tr('Lege deinen Geheimcode fest', 'Set your secret code');
+    if (mmFin(g, c.me)) return tr(`Warte, bis ${nm} fertig ist …`, `Waiting for ${nm} to finish …`);
+    return `<span class="yourturn">${tr(`Knacke ${nm}s Code!`, `Crack ${nm}’s code!`)}</span>`;
   },
+  summary: (g, c) => `${tr('Versuche', 'Tries')}: ${esc(c.names[0])} <b>${g.solved[0] || '✗'}</b> – <b>${g.solved[1] || '✗'}</b> ${esc(c.names[1])}`,
   init: (o, first) => ({ phase: 'set', codes: [null, null], guesses: [[], []], solved: [0, 0], max: 10, first }),
   act(g, a, p) {
     if (a.t === 'code') {
@@ -1057,10 +1117,11 @@ GAMES.mm = {
   render(el, c) {
     const g = c.g, me = c.me;
     const peg = x => x == null ? '<span class="peg e"></span>' : `<span class="peg" style="background:${MMC[x]}"></span>`;
-    const fb = (b, w) => `<span class="fb">${[0, 1, 2, 3].map(k => `<i class="${k < b ? 'b' : k < b + w ? 'w' : ''}"></i>`).join('')}</span>`;
-    const row = (r, n) => `<div class="mmrow"><span class="mmn">${n}</span>${r.c.map(peg).join('')}${fb(r.b, r.w)}</div>`;
+    const fb = (b, w) => `<span class="fb2"><span class="fbg" title="${tr('richtige Farbe am richtigen Platz', 'right color, right place')}">${b}</span><span class="fby" title="${tr('richtige Farbe, falscher Platz', 'right color, wrong place')}">${w}</span></span>`;
+    const legend = `<div class="mmlegend"><span><span class="fbg">2</span> ${tr('Farbe & Platz richtig', 'color & place right')}</span><span><span class="fby">1</span> ${tr('Farbe richtig, falscher Platz', 'right color, wrong place')}</span></div>`;
+    const row = (r, n) => `<div class="mmrow ${r.b === 4 ? 'solved' : ''}"><span class="mmn">${n}</span>${r.c.map(peg).join('')}${fb(r.b, r.w)}</div>`;
     if (me < 0) {
-      el.innerHTML = [0, 1].map(p => `<div class="mmbox"><h4>${esc(c.names[p])}</h4>${g.guesses[p].map((r, i) => row(r, i + 1)).join('') || '<p class="mut">Noch keine Versuche</p>'}</div>`).join('');
+      el.innerHTML = [0, 1].map(p => `<div class="mmbox"><h4>${esc(c.names[p])}</h4>${g.guesses[p].map((r, i) => row(r, i + 1)).join('') || `<p class="mut">${tr('Noch keine Versuche', 'No tries yet')}</p>`}</div>`).join('');
       el.innerHTML = `<div class="mmwrap">${el.innerHTML}</div>`; el.onclick = null; return;
     }
     const key = g.gid + g.phase + g.guesses[me].length;
@@ -1069,20 +1130,20 @@ GAMES.mm = {
     const builder = label => `<div class="mmrow cur">${mmL.cur.map((x, k) => `<button class="slot" data-k="${k}">${peg(x)}</button>`).join('')}</div>
       <div class="pal">${MMC.map((col, k) => `<button class="pc" data-c="${k}" style="background:${col}"></button>`).join('')}</div>
       <button class="btn pri" id="mmgo" ${mmL.cur.includes(null) ? 'disabled' : ''}>${label}</button>
-      <div class="mmhint">Tippe Farben an, um die Plätze zu füllen. Tippe auf einen Platz, um ihn zu leeren.</div>`;
+      <div class="mmhint">${tr('Tippe Farben an, um die Plätze zu füllen. Tippe auf einen Platz, um ihn zu leeren.', 'Tap colors to fill the slots. Tap a slot to empty it.')}</div>`;
     let h;
     if (g.phase === 'set') {
       h = g.codes[me]
-        ? `<div class="mmbox"><p>Dein Geheimcode:</p><div class="mmrow">${g.codes[me].map(peg).join('')}</div><p class="mut">Warte, bis ${nm} seinen Code festgelegt hat …</p></div>`
-        : `<div class="mmbox"><p><b>Lege deinen Geheimcode fest</b><br><span class="mut">${nm} muss ihn knacken. Farben dürfen doppelt vorkommen.</span></p>${builder('Code festlegen')}</div>`;
+        ? `<div class="mmbox"><p>${tr('Dein Geheimcode:', 'Your secret code:')}</p><div class="mmrow">${g.codes[me].map(peg).join('')}</div><p class="mut">${tr(`Warte, bis ${nm} seinen Code festgelegt hat …`, `Waiting for ${nm} to set their code …`)}</p></div>`
+        : `<div class="mmbox"><p><b>${tr('Lege deinen Geheimcode fest', 'Set your secret code')}</b><br><span class="mut">${tr(`${nm} muss ihn knacken. Farben dürfen doppelt vorkommen.`, `${nm} has to crack it. Colors may repeat.`)}</span></p>${builder(tr('Code festlegen', 'Set code'))}</div>`;
     } else {
       const mine = g.guesses[me], theirs = g.guesses[1 - me], done = mmFin(g, me);
-      h = `<div class="mmwrap"><div class="mmbox"><h4>Du knackst ${nm}s Code</h4>${mine.map((r, i) => row(r, i + 1)).join('')}
-        ${done ? (g.solved[me] ? `<p class="good">Geknackt in ${g.solved[me]} ${g.solved[me] === 1 ? 'Versuch' : 'Versuchen'}! 🎉</p>` : '<p class="bad">Leider nicht geschafft.</p>') + `<p class="mut">${nm}s Code war:</p><div class="mmrow">${g.codes[1 - me].map(peg).join('')}</div>`
-          : `<p class="mut">Versuch ${mine.length + 1} von ${g.max}</p>${builder('Raten')}`}</div>
-        <div class="mmbox opp"><h4>${nm} knackt deinen Code</h4><div class="mmrow">${g.codes[me].map(peg).join('')}</div>
-        ${theirs.map((r, i) => row(r, i + 1)).join('') || '<p class="mut">Noch kein Versuch.</p>'}
-        ${mmFin(g, 1 - me) ? `<p class="${g.solved[1 - me] ? 'good' : 'mut'}">${g.solved[1 - me] ? `Geknackt in ${g.solved[1 - me]} Versuchen` : 'Nicht geschafft'}</p>` : ''}</div></div>`;
+      h = `<div class="mmwrap"><div class="mmbox"><h4>${tr(`Du knackst ${nm}s Code`, `You crack ${nm}’s code`)}</h4>${legend}${mine.map((r, i) => row(r, i + 1)).join('')}
+        ${done ? (g.solved[me] ? `<p class="good">${tr(`Geknackt in ${g.solved[me]} ${g.solved[me] === 1 ? 'Versuch' : 'Versuchen'}! 🎉`, `Cracked in ${g.solved[me]} ${g.solved[me] === 1 ? 'try' : 'tries'}! 🎉`)}</p>` : `<p class="bad">${tr('Leider nicht geschafft.', 'Not cracked this time.')}</p>`) + `<p class="mut">${tr(`${nm}s Code war:`, `${nm}’s code was:`)}</p><div class="mmrow">${g.codes[1 - me].map(peg).join('')}</div>`
+          : `<p class="mut">${tr(`Versuch ${mine.length + 1} von ${g.max}`, `Try ${mine.length + 1} of ${g.max}`)}</p>${builder(tr('Raten', 'Guess'))}`}</div>
+        <div class="mmbox opp"><h4>${tr(`${nm} knackt deinen Code`, `${nm} cracks your code`)}</h4><div class="mmrow">${g.codes[me].map(peg).join('')}</div>
+        ${theirs.map((r, i) => row(r, i + 1)).join('') || `<p class="mut">${tr('Noch kein Versuch.', 'No try yet.')}</p>`}
+        ${mmFin(g, 1 - me) ? `<p class="${g.solved[1 - me] ? 'good' : 'mut'}">${g.solved[1 - me] ? tr(`Geknackt in ${g.solved[1 - me]} Versuchen`, `Cracked in ${g.solved[1 - me]} tries`) : tr('Nicht geschafft', 'Not cracked')}</p>` : ''}</div></div>`;
     }
     el.innerHTML = h;
     el.onclick = e => {
@@ -1102,24 +1163,25 @@ GAMES.mm = {
 /* ---------- Zahlenraten ---------- */
 let zrL = { v: '' };
 GAMES.zr = {
-  name: 'Zahlenraten', icon: '🔢', desc: 'Höher oder tiefer?',
-  rules: 'Jeder denkt sich eine geheime Zahl aus. Dann ratet ihr <b>gleichzeitig</b> die Zahl des anderen und bekommt nach jedem Tipp den Hinweis „höher“ oder „tiefer“. Wer weniger Versuche braucht, gewinnt.',
+  name: { de: "Zahlenraten", en: "Guess the Number" }, icon: '🔢', desc: { de: "H\u00f6her oder tiefer?", en: "Higher or lower?" },
+  rules: { de: "Jeder denkt sich eine geheime Zahl aus. Dann ratet ihr <b>gleichzeitig</b> die Zahl des anderen und bekommt nach jedem Tipp den Hinweis \u201eh\u00f6her\u201c oder \u201etiefer\u201c. Wer weniger Versuche braucht, gewinnt.", en: "Each of you thinks of a secret number. Then you <b>both</b> guess the other's number at the same time and get a \u201chigher\u201d or \u201clower\u201d hint after every guess. Whoever needs fewer guesses wins." },
   status(g, c) {
-    if (c.me < 0) return 'Du schaust zu.';
+    if (c.me < 0) return tr('Du schaust zu.', 'You are watching.');
     const nm = esc(c.names[1 - c.me]);
-    if (g.phase === 'set') return g.nums[c.me] != null ? `Warte auf ${nm} …` : 'Denk dir eine Zahl aus';
-    if (g.solved[c.me]) return `Warte, bis ${nm} fertig ist …`;
-    return `<span class="yourturn">Errate ${nm}s Zahl!</span>`;
+    if (g.phase === 'set') return g.nums[c.me] != null ? tr(`Warte auf ${nm} …`, `Waiting for ${nm} …`) : tr('Denk dir eine Zahl aus', 'Think of a number');
+    if (g.solved[c.me]) return tr(`Warte, bis ${nm} fertig ist …`, `Waiting for ${nm} to finish …`);
+    return `<span class="yourturn">${tr(`Errate ${nm}s Zahl!`, `Guess ${nm}’s number!`)}</span>`;
   },
   opts: {
     load: () => ({ range: store.get('zrRange', 100) }),
     save: st => store.set('zrRange', st.range),
     out: st => ({ range: st.range }),
     render(body, st, draw) {
-      body.innerHTML = `<div class="opt"><div>Zahlenbereich</div><div class="seg">${[[100, '1 – 100'], [1000, '1 – 1000']].map(([v, l]) => `<button data-r="${v}" class="${st.range === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>`;
+      body.innerHTML = `<div class="opt"><div>${tr('Zahlenbereich', 'Number range')}</div><div class="seg">${[[100, '1 – 100'], [1000, '1 – 1000']].map(([v, l]) => `<button data-r="${v}" class="${st.range === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>`;
       body.querySelectorAll('[data-r]').forEach(b => b.onclick = () => { st.range = +b.dataset.r; draw(); });
     }
   },
+  summary: (g, c) => `${tr('Versuche', 'Tries')}: ${esc(c.names[0])} <b>${g.solved[0] || '✗'}</b> – <b>${g.solved[1] || '✗'}</b> ${esc(c.names[1])}`,
   init: (o, first) => ({ phase: 'set', nums: [null, null], guesses: [[], []], solved: [0, 0], range: o.range === 1000 ? 1000 : 100, first }),
   act(g, a, p) {
     const n = a.n | 0;
@@ -1141,29 +1203,29 @@ GAMES.zr = {
   },
   render(el, c) {
     const g = c.g, me = c.me;
-    const li = x => `<li><span class="n">${x.n}</span> ${x.r === 'h' ? '<span class="up">höher ⬆</span>' : x.r === 't' ? '<span class="dn">tiefer ⬇</span>' : '<span class="ok">Richtig! ✓</span>'}</li>`;
+    const li = x => `<li><span class="n">${x.n}</span> ${x.r === 'h' ? `<span class="up">${tr('höher ⬆', 'higher ⬆')}</span>` : x.r === 't' ? `<span class="dn">${tr('tiefer ⬇', 'lower ⬇')}</span>` : `<span class="ok">${tr('Richtig! ✓', 'Correct! ✓')}</span>`}</li>`;
     if (me < 0) { el.innerHTML = `<div class="paper zr"><div class="zrcols">${[0, 1].map(p => `<div><h4>${esc(c.names[p])}</h4><ul class="zrlist">${g.guesses[p].map(li).join('')}</ul></div>`).join('')}</div></div>`; return; }
     const nm = esc(c.names[1 - me]);
     let h = '<div class="paper zr">';
     if (g.phase === 'set') {
       h += g.nums[me] != null
-        ? `<p class="big">Deine geheime Zahl: <b>${g.nums[me]}</b></p><p>Warte, bis ${nm} sich eine Zahl ausgedacht hat …</p>`
-        : `<p class="big">Denk dir eine Zahl zwischen 1 und ${g.range} aus.</p><p>${nm} muss sie erraten – je schwerer, desto besser!</p>
-           <div class="zrin"><input id="zrin" type="number" inputmode="numeric" min="1" max="${g.range}" placeholder="?"><button class="btn pri" id="zrgo">Festlegen</button></div><div class="err" id="zrerr"></div>`;
+        ? `<p class="big">${tr('Deine geheime Zahl', 'Your secret number')}: <b>${g.nums[me]}</b></p><p>${tr(`Warte, bis ${nm} sich eine Zahl ausgedacht hat …`, `Waiting for ${nm} to pick a number …`)}</p>`
+        : `<p class="big">${tr(`Denk dir eine Zahl zwischen 1 und ${g.range} aus.`, `Think of a number between 1 and ${g.range}.`)}</p><p>${tr(`${nm} muss sie erraten – je schwerer, desto besser!`, `${nm} has to guess it – the harder, the better!`)}</p>
+           <div class="zrin"><input id="zrin" type="number" inputmode="numeric" min="1" max="${g.range}" placeholder="?"><button class="btn pri" id="zrgo">${tr('Festlegen', 'Set')}</button></div><div class="err" id="zrerr"></div>`;
     } else {
       const mine = g.guesses[me]; let lo = 1, hi = g.range;
       mine.forEach(x => { if (x.r === 'h') lo = Math.max(lo, x.n + 1); if (x.r === 't') hi = Math.min(hi, x.n - 1); });
-      h += `<div class="zrcols"><div><h4>Du rätst ${nm}s Zahl</h4><ul class="zrlist">${mine.map(li).join('')}</ul>
-        ${g.solved[me] ? `<p class="good big">Geschafft in ${g.solved[me]} ${g.solved[me] === 1 ? 'Versuch' : 'Versuchen'}! 🎉</p>`
-          : `<p class="rng">Die Zahl liegt zwischen <b>${lo}</b> und <b>${hi}</b>.</p><div class="zrin"><input id="zrin" type="number" inputmode="numeric" placeholder="?"><button class="btn pri" id="zrgo">Raten</button></div><div class="err" id="zrerr"></div>`}</div>
-        <div class="opp"><h4>${nm} rät deine Zahl (${g.nums[me]})</h4><ul class="zrlist">${g.guesses[1 - me].map(li).join('') || '<li class="mut">Noch kein Tipp.</li>'}</ul>
-        ${g.solved[1 - me] ? `<p class="good">${nm} hat es in ${g.solved[1 - me]} Versuchen geschafft!</p>` : ''}</div></div>`;
+      h += `<div class="zrcols"><div><h4>${tr(`Du rätst ${nm}s Zahl`, `You guess ${nm}’s number`)}</h4><ul class="zrlist">${mine.map(li).join('')}</ul>
+        ${g.solved[me] ? `<p class="good big">${tr(`Geschafft in ${g.solved[me]} ${g.solved[me] === 1 ? 'Versuch' : 'Versuchen'}! 🎉`, `Got it in ${g.solved[me]} ${g.solved[me] === 1 ? 'try' : 'tries'}! 🎉`)}</p>`
+          : `<p class="rng">${tr(`Die Zahl liegt zwischen <b>${lo}</b> und <b>${hi}</b>.`, `The number is between <b>${lo}</b> and <b>${hi}</b>.`)}</p><div class="zrin"><input id="zrin" type="number" inputmode="numeric" placeholder="?"><button class="btn pri" id="zrgo">${tr('Raten', 'Guess')}</button></div><div class="err" id="zrerr"></div>`}</div>
+        <div class="opp"><h4>${tr(`${nm} rät deine Zahl`, `${nm} guesses your number`)} (${g.nums[me]})</h4><ul class="zrlist">${g.guesses[1 - me].map(li).join('') || `<li class="mut">${tr('Noch kein Tipp.', 'No guess yet.')}</li>`}</ul>
+        ${g.solved[1 - me] ? `<p class="good">${tr(`${nm} hat es in ${g.solved[1 - me]} Versuchen geschafft!`, `${nm} got it in ${g.solved[1 - me]} tries!`)}</p>` : ''}</div></div>`;
     }
     el.innerHTML = h + '</div>';
     const inp = $('#zrin', el), btn = $('#zrgo', el);
     const submit = () => {
       const n = parseInt(zrL.v, 10);
-      if (!(n >= 1 && n <= g.range)) { $('#zrerr', el).textContent = `Bitte eine Zahl von 1 bis ${g.range} eingeben.`; return; }
+      if (!(n >= 1 && n <= g.range)) { $('#zrerr', el).textContent = tr(`Bitte eine Zahl von 1 bis ${g.range} eingeben.`, `Please enter a number from 1 to ${g.range}.`); return; }
       zrL.v = ''; inp.value = '';
       c.dispatch(g.phase === 'set' ? { t: 'num', n } : { t: 'guess', n });
     };
@@ -1181,17 +1243,17 @@ const MEM_THEMES = {
 };
 MEM_THEMES.mix = [...new Set([].concat(MEM_THEMES.tiere, MEM_THEMES.sport, MEM_THEMES.essen, MEM_THEMES.reisen))];
 GAMES.mem = {
-  name: 'Memory', icon: '🃏', desc: 'Paare finden',
-  rules: 'Ihr deckt abwechselnd zwei Karten auf. Passen sie zusammen, bekommst du das Paar und darfst nochmal. Sonst werden sie wieder umgedreht und der andere ist dran. Wer am Ende mehr Paare hat, gewinnt.',
+  name: { de: "Memory", en: "Memory" }, icon: '🃏', desc: { de: "Paare finden", en: "Find the pairs" },
+  rules: { de: "Ihr deckt abwechselnd zwei Karten auf. Passen sie zusammen, bekommst du das Paar und darfst nochmal. Sonst werden sie wieder umgedreht und der andere ist dran. Wer am Ende mehr Paare hat, gewinnt.", en: "Take turns flipping two cards. If they match, you keep the pair and go again. If not, they are turned back over and it's the other player's turn. Whoever has more pairs at the end wins." },
   turn: true,
-  status(g, c) { return `${turnText(g, c, this)} <span class="mut">· Paare: ${esc(c.names[0])} ${g.pairs[0]} – ${g.pairs[1]} ${esc(c.names[1])}</span>`; },
+  status(g, c) { return `${turnText(g, c, this)} <span class="mut">· ${tr('Paare', 'Pairs')}: ${esc(c.names[0])} ${g.pairs[0]} – ${g.pairs[1]} ${esc(c.names[1])}</span>`; },
   opts: {
     load: () => ({ cards: store.get('memCards', 24), theme: store.get('memTheme', 'tiere') }),
     save: st => { store.set('memCards', st.cards); store.set('memTheme', st.theme); },
     out: st => ({ pairs: st.cards / 2, theme: st.theme }),
     render(body, st, draw) {
-      body.innerHTML = `<div class="opt"><div>Anzahl Karten</div><div class="seg">${[12, 16, 20, 24, 30, 36, 40, 48].map(v => `<button data-n="${v}" class="${st.cards === v ? 'on' : ''}">${v}</button>`).join('')}</div></div>
-        <div class="opt"><div>Motive</div><div class="seg">${[['tiere', '🐶 Tiere'], ['sport', '⚽ Sport'], ['essen', '🍎 Essen'], ['reisen', '✈️ Reisen'], ['mix', '🎲 Gemischt']].map(([v, l]) => `<button data-t="${v}" class="${st.theme === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>`;
+      body.innerHTML = `<div class="opt"><div>${tr('Anzahl Karten', 'Number of cards')}</div><div class="seg">${[12, 16, 20, 24, 30, 36, 40, 48].map(v => `<button data-n="${v}" class="${st.cards === v ? 'on' : ''}">${v}</button>`).join('')}</div></div>
+        <div class="opt"><div>${tr('Motive', 'Theme')}</div><div class="seg">${[['tiere', tr('🐶 Tiere', '🐶 Animals')], ['sport', '⚽ Sport'], ['essen', tr('🍎 Essen', '🍎 Food')], ['reisen', tr('✈️ Reisen', '✈️ Travel')], ['mix', tr('🎲 Gemischt', '🎲 Mixed')]].map(([v, l]) => `<button data-t="${v}" class="${st.theme === v ? 'on' : ''}">${l}</button>`).join('')}</div></div>`;
       body.querySelectorAll('[data-n]').forEach(b => b.onclick = () => { st.cards = +b.dataset.n; draw(); });
       body.querySelectorAll('[data-t]').forEach(b => b.onclick = () => { st.theme = b.dataset.t; draw(); });
     }
@@ -1214,6 +1276,7 @@ GAMES.mem = {
       } else { g.lock = true; g.lockAt = Date.now(); }
     }
   },
+  summary: (g, c) => `${tr('Paare', 'Pairs')}: ${esc(c.names[0])} <b>${g.pairs[0]}</b> – <b>${g.pairs[1]}</b> ${esc(c.names[1])}`,
   hostTick(g) {
     if (g.lock && Date.now() - g.lockAt > 1400) { g.open = []; g.lock = false; g.turn = 1 - g.turn; return true; }
     return false;
@@ -1249,34 +1312,84 @@ const myIdx = () => pidx(ME.id);
 function mkCtx() {
   return {
     g: S.g, S, me: myIdx(),
-    names: [0, 1].map(i => (S.players[i] && S.players[i].name) || 'Spieler ' + (i + 1)),
+    names: [0, 1].map(i => (S.players[i] && S.players[i].name) || tr('Spieler ', 'Player ') + (i + 1)),
     dispatch: a => setTimeout(() => dispatch(a), 0),
     rerender: () => { const m = $('#main'); if (m && S && S.game) renderGame(m); }
   };
 }
 function turnText(g, c, G) {
-  if (c.me < 0) return `${esc(c.names[g.turn])} ist dran`;
+  if (c.me < 0) return tr(`${esc(c.names[g.turn])} ist dran`, `${esc(c.names[g.turn])}’s turn`);
   return g.turn === c.me
-    ? `<span class="yourturn">Du bist dran</span> ${G.piece ? G.piece(g, c.me) : ''}`
-    : `<span class="mut">${esc(c.names[g.turn])} ist dran …</span> ${G.piece ? G.piece(g, g.turn) : ''}`;
+    ? `<span class="yourturn">${tr('Du bist dran', 'Your turn')}</span> ${G.piece ? G.piece(g, c.me) : ''}`
+    : `<span class="mut">${tr(`${esc(c.names[g.turn])} ist dran …`, `${esc(c.names[g.turn])}’s turn …`)}</span> ${G.piece ? G.piece(g, g.turn) : ''}`;
 }
 let homeMsgText = '';
 function homeMsg(t) { homeMsgText = t; const m = $('#hmsg'); if (m) m.textContent = t; }
 
+/* ---------- Sprache ---------- */
+function langSwitch() { return `<div class="lang">${['de', 'en'].map(l => `<button data-lang="${l}" class="${LANG === l ? 'on' : ''}">${l.toUpperCase()}</button>`).join('')}</div>`; }
+function setLang(l) {
+  if (l === LANG) return;
+  LANG = l; store.set('lang', l); document.documentElement.lang = l;
+  document.querySelectorAll('.modal').forEach(m => m.remove());
+  const app = $('#app'); app.dataset.view = ''; app.innerHTML = '';
+  render();
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-lang]'); if (b) setLang(b.dataset.lang); });
+
+/* ---------- kleine Helfer ---------- */
+function toast(t) {
+  const el = document.createElement('div');
+  el.className = 'toast'; el.textContent = t;
+  document.body.appendChild(el);
+  requestAnimationFrame(() => el.classList.add('show'));
+  setTimeout(() => { el.classList.remove('show'); setTimeout(() => el.remove(), 400); }, 3500);
+}
+function flash(t) { toast(t); }
+function copyCode() {
+  if (!S) return;
+  try { navigator.clipboard.writeText(S.code.toUpperCase()).then(() => toast(tr('Code kopiert!', 'Code copied!')), () => {}); } catch (e) {}
+}
+function confirmBox(title, text, okLabel, fn) {
+  const m = document.createElement('div');
+  m.className = 'modal';
+  m.innerHTML = `<div class="mbox" style="max-width:380px"><h3>${esc(title)}</h3><p class="mut" style="line-height:1.5;margin:0">${esc(text)}</p><div class="mbtns"><button class="btn" data-x>${tr('Abbrechen', 'Cancel')}</button><button class="btn danger" data-ok>${esc(okLabel)}</button></div></div>`;
+  document.body.appendChild(m);
+  $('[data-x]', m).onclick = () => m.remove();
+  $('[data-ok]', m).onclick = () => { m.remove(); fn(); };
+  m.onclick = e => { if (e.target === m) m.remove(); };
+}
+function askCloseRoom() {
+  confirmBox(tr('Raum schließen?', 'Close the room?'),
+    tr('Der Raum wird für beide Spieler geschlossen und ihr kehrt zum Startbildschirm zurück. Dort könnt ihr jederzeit einen neuen Raum erstellen.',
+       'The room will be closed for both players and you return to the start screen. You can create a new room there at any time.'),
+    tr('Raum schließen', 'Close room'),
+    () => { if (myIdx() >= 0) dispatch({ t: 'close' }); else leaveRoom(); });
+}
+function inviteLink() { return location.origin + location.pathname + '#' + S.code.toUpperCase(); }
+function shareInvite() {
+  if (!S) return;
+  const url = inviteLink(), text = tr(`Spiel mit mir Minispiele! Raum-Code: ${S.code.toUpperCase()}`, `Play Minispiele with me! Room code: ${S.code.toUpperCase()}`);
+  if (navigator.share) { navigator.share({ title: 'Minispiele', text, url }).catch(() => {}); return; }
+  try { navigator.clipboard.writeText(url).then(() => toast(tr('Einladungslink kopiert!', 'Invite link copied!')), () => {}); } catch (e) {}
+}
+
+/* ---------- Bildschirme ---------- */
 function render() {
   const app = $('#app');
-  if (!net) { renderHome(app); return; }
+  if (!net) { removeOverlay(); renderHome(app); return; }
   if (!S) { renderWaiting(app); return; }
   if (app.dataset.view !== 'shell') {
     app.dataset.view = 'shell';
-    app.innerHTML = `<header><div class="brand">🎲 Minispiele</div><div class="room" id="roomchip" title="Code kopieren"></div><div class="sc" id="score"></div><button class="btn sm ghost" id="leave">Verlassen</button></header><div id="banner"></div><main id="main"></main>`;
-    $('#leave').onclick = () => confirmBox('Raum verlassen?', isHost ? 'Du kehrst zum Startbildschirm zurück. Da du den Raum erstellt hast, wird er dabei für alle geschlossen.' : 'Du kehrst zum Startbildschirm zurück. Mit dem Code kannst du später wieder beitreten.', 'Verlassen', leaveRoom);
+    app.innerHTML = `<header><div class="brand">🎲 Minispiele</div><div class="room" id="roomchip" title="${tr('Code kopieren', 'Copy code')}"></div><div class="sc" id="score"></div><div class="hright">${langSwitch()}<button class="btn sm danger" id="leave">${tr('Raum schließen', 'Close room')}</button></div></header><div id="banner"></div><main id="main"></main>`;
+    $('#leave').onclick = askCloseRoom;
     $('#roomchip').onclick = () => copyCode();
   }
   renderHeader();
   const main = $('#main');
   if (!S.game) {
-    if (main.dataset.view !== 'lobby') { main.dataset.view = 'lobby'; }
+    removeOverlay();
+    if (main.dataset.view !== 'lobby') main.dataset.view = 'lobby';
     renderLobby(main);
   } else {
     const k = 'game:' + S.g.gid;
@@ -1284,47 +1397,27 @@ function render() {
     renderGame(main);
   }
 }
-function copyCode() {
-  if (!S) return;
-  try { navigator.clipboard.writeText(S.code.toUpperCase()).then(() => flash('Code kopiert!'), () => {}); } catch (e) {}
-}
-function flash(t) { const b = $('#banner'); if (!b) return; b.dataset.flash = '1'; b.style.background = '#1f4d2e'; b.style.color = '#c9ffd9'; b.textContent = t; setTimeout(() => { b.textContent = ''; b.style.background = ''; b.style.color = ''; delete b.dataset.flash; }, 1800); }
-function confirmBox(title, text, okLabel, fn) {
-  const m = document.createElement('div');
-  m.className = 'modal';
-  m.innerHTML = `<div class="mbox" style="max-width:380px"><h3>${esc(title)}</h3><p class="mut" style="line-height:1.5;margin:0">${esc(text)}</p><div class="mbtns"><button class="btn" data-x>Abbrechen</button><button class="btn danger" data-ok>${esc(okLabel)}</button></div></div>`;
-  document.body.appendChild(m);
-  $('[data-x]', m).onclick = () => m.remove();
-  $('[data-ok]', m).onclick = () => { m.remove(); fn(); };
-  m.onclick = e => { if (e.target === m) m.remove(); };
-}
-function inviteLink() { return location.origin + location.pathname + '#' + S.code.toUpperCase(); }
-function shareInvite() {
-  if (!S) return;
-  const url = inviteLink(), text = `Spiel mit mir Minispiele! Raum-Code: ${S.code.toUpperCase()}`;
-  if (navigator.share) { navigator.share({ title: 'Minispiele', text, url }).catch(() => {}); return; }
-  try { navigator.clipboard.writeText(url).then(() => flash('Einladungslink kopiert!'), () => {}); } catch (e) {}
-}
 function renderHome(app) {
   if (app.dataset.view === 'home') return;
   app.dataset.view = 'home';
   app.innerHTML = `<div class="home">
-    <div class="logo">🎲 Minispiele</div>
-    <div class="mut">Klassische Spiele für zwei – jeder auf seinem eigenen Gerät.</div>
-    <label>Dein Name<input id="nm" maxlength="16" placeholder="z. B. Paul" value="${esc(ME.name)}"></label>
-    <button class="btn pri big" id="create">Raum erstellen</button>
-    <div class="or">— oder —</div>
-    <div class="joinrow"><input id="code" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters"><button class="btn" id="join">Beitreten</button></div>
+    <div class="homehead"><div class="logo">🎲 Minispiele</div>${langSwitch()}</div>
+    <div class="mut">${tr('Klassische Spiele für zwei – jeder auf seinem eigenen Gerät.', 'Classic games for two – each on their own device.')}</div>
+    <label>${tr('Dein Name', 'Your name')}<input id="nm" maxlength="16" placeholder="${tr('z. B. Oktopusfänger123', 'e.g. OctopusCatcher123')}" value="${esc(ME.name)}"></label>
+    <button class="btn pri big" id="create">${tr('Raum erstellen', 'Create room')}</button>
+    <div class="or">— ${tr('oder', 'or')} —</div>
+    <div class="joinrow"><input id="code" maxlength="4" placeholder="CODE" autocomplete="off" autocapitalize="characters"><button class="btn" id="join">${tr('Beitreten', 'Join')}</button></div>
     <div id="hmsg" class="err">${esc(homeMsgText)}</div>
-    <div class="prev">${ORDER.map(id => `<span>${GAMES[id].icon} ${GAMES[id].name}</span>`).join('')}</div></div>`;
+    <div class="prev">${ORDER.map(id => `<span>${GAMES[id].icon} ${L(GAMES[id].name)}</span>`).join('')}</div></div>`;
   const nm = $('#nm');
   const saveName = () => { ME.name = nm.value.trim().slice(0, 16); store.set('name', ME.name); return ME.name; };
   nm.oninput = saveName;
-  $('#create').onclick = () => { if (!saveName()) { homeMsg('Bitte gib zuerst deinen Namen ein.'); nm.focus(); return; } connect(newCode(), true); };
+  const needName = () => { homeMsg(tr('Bitte gib zuerst deinen Namen ein.', 'Please enter your name first.')); nm.focus(); };
+  $('#create').onclick = () => { if (!saveName()) return needName(); connect(newCode(), true); };
   const join = () => {
-    if (!saveName()) { homeMsg('Bitte gib zuerst deinen Namen ein.'); nm.focus(); return; }
+    if (!saveName()) return needName();
     const code = $('#code').value.trim().toLowerCase();
-    if (!/^[a-z0-9]{4}$/.test(code)) { homeMsg('Der Code hat 4 Zeichen.'); return; }
+    if (!/^[a-z0-9]{4}$/.test(code)) { homeMsg(tr('Der Code hat 4 Zeichen.', 'The code has 4 characters.')); return; }
     connect(code, false);
   };
   $('#join').onclick = join;
@@ -1334,41 +1427,63 @@ function renderWaiting(app) {
   if (app.dataset.view === 'wait') return;
   app.dataset.view = 'wait';
   const code = (sess.get('room') || {}).code || '';
-  app.innerHTML = `<div class="home"><div class="logo">🎲 Minispiele</div><div class="wait"><div class="pulse">📡</div><b>Verbinde mit Raum ${esc(code.toUpperCase())} …</b><div class="mut sm" id="wmsg"></div><button class="btn sm" id="cancel">Abbrechen</button></div></div>`;
+  app.innerHTML = `<div class="home"><div class="logo">🎲 Minispiele</div><div class="wait"><div class="pulse">📡</div><b>${tr('Verbinde mit Raum', 'Connecting to room')} ${esc(code.toUpperCase())} …</b><div class="mut sm" id="wmsg"></div><button class="btn sm" id="cancel">${tr('Abbrechen', 'Cancel')}</button></div></div>`;
   $('#cancel').onclick = leaveRoom;
 }
 function renderHeader() {
   const g = S.g, G = S.game && GAMES[S.game];
   const turnP = G && G.turn && g && !g.over ? g.turn : -1;
-  $('#roomchip').innerHTML = `Raum <b>${S.code.toUpperCase()}</b> ⧉`;
-  $('#score').innerHTML = S.players.map((p, i) => `<span class="pl p${i} ${turnP === i ? 'on' : ''}"><span class="dot"></span><span class="nm">${esc(p.name)}${p.id === ME.id ? ' (du)' : ''}</span><b>${S.scores[p.id] || 0}</b></span>`).join('<span class="mut">:</span>')
+  $('#roomchip').innerHTML = `${tr('Raum', 'Room')} <b>${S.code.toUpperCase()}</b> ⧉`;
+  $('#score').innerHTML = S.players.map((p, i) => `<span class="pl p${i} ${turnP === i ? 'on' : ''}"><span class="dot"></span><span class="nm">${esc(p.name)}${p.id === ME.id ? tr(' (du)', ' (you)') : ''}</span><b>${S.scores[p.id] || 0}</b></span>`).join('<span class="mut">:</span>')
     + (S.spec.length ? `<span class="mut sm">👀 ${S.spec.length}</span>` : '');
 }
+let lastNoteT = 0;
 function renderLobby(main) {
   const two = S.players.length >= 2, me = myIdx();
-  main.innerHTML = `${!two ? `<div class="wait"><div class="pulse">⏳</div><div><b>Warte auf deinen Mitspieler …</b><br><span class="mut">Schick ihm diesen Raum-Code:</span></div><div class="bigcode">${S.code.toUpperCase()}</div><div class="rbtns">${net.kind === 'firebase' ? '<button class="btn sm pri" id="share">Einladungslink teilen</button>' : ''}<button class="btn sm" id="cp2">Code kopieren</button></div></div>` : ''}
-    ${S.note && S.note.game && GAMES[S.note.game] ? `<div class="notebar">ℹ️ ${S.note.by === ME.id ? 'Du hast' : esc((S.players.find(p => p.id === S.note.by) || {}).name || 'Dein Mitspieler') + ' hat'} „${GAMES[S.note.game].name}“ beendet.</div>` : ''}
-    ${me < 0 ? '<p class="note">Der Raum ist voll – du schaust zu.</p>' : ''}
-    <h2 class="sect">${two ? 'Spiel auswählen' : 'Diese Spiele warten auf euch'}</h2>
-    <div class="tiles">${ORDER.map(id => { const G = GAMES[id]; return `<button class="tile" data-g="${id}" ${!two || me < 0 ? 'disabled' : ''}><div class="ti">${G.icon}</div><div class="tn">${G.name}</div><div class="td">${G.desc}</div></button>`; }).join('')}</div>
-    ${net.kind === 'local' ? '<p class="note">⚠️ Testmodus: Online-Räume sind hier nicht verfügbar. Verbindung klappt nur zwischen Tabs in diesem Browser.</p>' : ''}`;
+  main.innerHTML = `${!two ? `<div class="wait"><div class="pulse">⏳</div><div><b>${tr('Warte auf deinen Mitspieler …', 'Waiting for your opponent …')}</b><br><span class="mut">${tr('Schick ihm diesen Raum-Code:', 'Send them this room code:')}</span></div><div class="bigcode">${S.code.toUpperCase()}</div><div class="rbtns">${net.kind === 'firebase' ? `<button class="btn sm pri" id="share">${tr('Einladungslink teilen', 'Share invite link')}</button>` : ''}<button class="btn sm" id="cp2">${tr('Code kopieren', 'Copy code')}</button></div></div>` : ''}
+    ${me < 0 ? `<p class="note">${tr('Der Raum ist voll – du schaust zu.', 'The room is full – you are watching.')}</p>` : ''}
+    <h2 class="sect">${two ? tr('Spiel auswählen', 'Choose a game') : tr('Diese Spiele warten auf euch', 'These games are waiting for you')}</h2>
+    <div class="tiles">${ORDER.map(id => { const G = GAMES[id]; return `<button class="tile" data-g="${id}" ${!two || me < 0 ? 'disabled' : ''}><div class="ti">${G.icon}</div><div class="tn">${L(G.name)}</div><div class="td">${L(G.desc)}</div></button>`; }).join('')}</div>
+    ${S.hist && S.hist.length ? `<h2 class="sect">${tr('Bisher gespielt', 'Played so far')}</h2><div class="hist">${histHtml(6)}</div>` : ''}
+    <div class="lobbyfoot">${me >= 0 ? `<button class="btn danger" id="closeroom">${tr('🚪 Raum schließen', '🚪 Close room')}</button>` : ''}</div>
+    ${net.kind === 'local' ? `<p class="note">${tr('⚠️ Testmodus: Online-Räume sind hier nicht verfügbar. Verbindung klappt nur zwischen Tabs in diesem Browser.', '⚠️ Test mode: online rooms are not available here. Only tabs in this browser can connect.')}</p>` : ''}`;
   const cp = $('#cp2'); if (cp) cp.onclick = copyCode;
   const sh = $('#share'); if (sh) sh.onclick = shareInvite;
+  const cr = $('#closeroom'); if (cr) cr.onclick = askCloseRoom;
   main.querySelectorAll('.tile').forEach(t => t.onclick = () => openOpts(t.dataset.g));
+  if (S.note && S.note.t !== lastNoteT && GAMES[S.note.game]) {
+    lastNoteT = S.note.t;
+    const gn = L(GAMES[S.note.game].name);
+    toast(S.note.by === ME.id ? tr(`Du hast „${gn}“ beendet.`, `You ended “${gn}”.`) : tr(`${(S.players.find(p => p.id === S.note.by) || {}).name || 'Dein Mitspieler'} hat „${gn}“ beendet.`, `${(S.players.find(p => p.id === S.note.by) || {}).name || 'Your opponent'} ended “${gn}”.`));
+  }
+}
+function histHtml(n) {
+  return (S.hist || []).slice(-n).reverse().map(h => {
+    const G = GAMES[h.g]; if (!G) return '';
+    const w = h.w >= 0 && h.n ? h.n[h.w] : null;
+    return `<div class="hrow"><span>${G.icon} ${L(G.name)}</span><span class="${h.w >= 0 ? 'p' + h.w + 'c' : 'mut'}">${w ? '🏆 ' + esc(w) : tr('🤝 Unentschieden', '🤝 Draw')}</span></div>`;
+  }).join('');
+}
+function resultTitle(g, c) {
+  if (g.draw) return tr('🤝 Unentschieden!', '🤝 It’s a draw!');
+  if (g.winner === c.me) return tr('🎉 Du hast gewonnen!', '🎉 You won!');
+  return tr(`🏆 ${esc(c.names[g.winner])} gewinnt!`, `🏆 ${esc(c.names[g.winner])} wins!`);
 }
 function renderGame(main) {
   const G = GAMES[S.game], g = S.g, c = mkCtx();
   if (!main.firstChild) {
-    main.innerHTML = `<div class="ghead"><div class="gtitle">${G.icon} ${G.name}</div><button class="btn sm danger" id="back"></button></div>
+    main.innerHTML = `<div class="ghead"><div class="gtitle">${G.icon} ${L(G.name)}</div><button class="btn sm danger" id="back"></button></div>
       <div class="status" id="status"></div><div class="board" id="board"></div><div id="resbar"></div>
-      <details class="rules"><summary>Spielregeln</summary><div>${G.rules}</div></details>`;
+      <details class="rules"><summary>${tr('Spielregeln', 'Rules')}</summary><div>${L(G.rules)}</div></details>`;
   }
   const back = $('#back');
   back.style.display = c.me < 0 ? 'none' : '';
-  if (g.over) { back.textContent = '← Zur Spielauswahl'; back.classList.remove('danger'); back.onclick = () => dispatch({ t: 'menu' }); }
+  if (g.over) { back.textContent = tr('← Zur Spielauswahl', '← Back to games'); back.classList.remove('danger'); back.onclick = () => dispatch({ t: 'menu' }); }
   else {
-    back.textContent = '✕ Spiel beenden'; back.classList.add('danger');
-    back.onclick = () => confirmBox('Spiel beenden?', `Ihr kehrt beide zur Spielauswahl zurück. Das laufende Spiel „${G.name}“ wird nicht gewertet, der Punktestand bleibt erhalten.`, 'Spiel beenden', () => dispatch({ t: 'menu' }));
+    back.textContent = tr('✕ Spiel beenden', '✕ End game'); back.classList.add('danger');
+    back.onclick = () => confirmBox(tr('Spiel beenden?', 'End this game?'),
+      tr(`Ihr kehrt beide zur Spielauswahl zurück. Das laufende Spiel „${L(G.name)}“ wird nicht gewertet, der Punktestand bleibt erhalten.`, `You both return to the game selection. The current game “${L(G.name)}” won’t count; the score is kept.`),
+      tr('Spiel beenden', 'End game'), () => dispatch({ t: 'menu' }));
   }
   const ae = document.activeElement, fid = ae && ae.id && main.contains(ae) ? ae.id : null;
   let sel = null; try { sel = fid ? ae.selectionStart : null; } catch (e) {}
@@ -1376,15 +1491,46 @@ function renderGame(main) {
   G.render($('#board'), c);
   const rb = $('#resbar');
   if (g.over) {
-    const t = g.draw ? '🤝 Unentschieden!' : g.winner === c.me ? '🎉 Du hast gewonnen!' : `🏆 ${esc(c.names[g.winner])} gewinnt!`;
-    rb.innerHTML = `<div class="result"><div class="rt">${t}</div>${c.me >= 0 ? '<div class="rbtns"><button class="btn pri" id="again">Nochmal</button><button class="btn" id="tomenu">Anderes Spiel</button></div>' : ''}</div>`;
+    rb.innerHTML = `<div class="result"><div class="rt">${resultTitle(g, c)}</div>${c.me >= 0 ? `<div class="rbtns"><button class="btn pri" id="again">${tr('🔁 Nochmal', '🔁 Play again')}</button><button class="btn" id="tomenu">${tr('🎲 Nächstes Spiel', '🎲 Next game')}</button></div>` : ''}</div>`;
     const a = $('#again'); if (a) a.onclick = () => dispatch({ t: 'again' });
     const m = $('#tomenu'); if (m) m.onclick = () => dispatch({ t: 'menu' });
-  } else rb.innerHTML = '';
+    showOverlay(g, c, G);
+  } else { rb.innerHTML = ''; removeOverlay(); }
   if (fid) {
     const n = document.getElementById(fid);
     if (n && n !== document.activeElement && !n.disabled) { n.focus(); try { if (sel != null) n.setSelectionRange(sel, sel); } catch (e) {} }
   }
+}
+
+/* ---------- Scoreboard nach jedem Spiel ---------- */
+let ovGid = null;
+function removeOverlay() { const o = $('#scoreov'); if (o) o.remove(); }
+function showOverlay(g, c, G) {
+  if (ovGid === g.gid) return;            // pro Spiel nur einmal automatisch zeigen
+  ovGid = g.gid;
+  removeOverlay();
+  const sum = G.summary ? G.summary(g, c) : '';
+  const cls = g.draw ? 'draw' : g.winner === c.me ? 'won' : 'lost';
+  const o = document.createElement('div');
+  o.id = 'scoreov'; o.className = 'scoreov ' + cls;
+  o.innerHTML = `<div class="sobox">
+    <div class="sogame">${G.icon} ${L(G.name)}</div>
+    <div class="sotitle">${resultTitle(g, c)}</div>
+    ${sum ? `<div class="sosum">${sum}</div>` : ''}
+    <div class="soscore">${S.players.map((p, i) => `<div class="sop p${i}"><div class="son">${esc(p.name)}${p.id === ME.id ? tr(' (du)', ' (you)') : ''}</div><div class="sos">${S.scores[p.id] || 0}</div></div>`).join('<div class="socolon">:</div>')}</div>
+    <div class="solabel">${tr('Gesamtstand in diesem Raum', 'Overall score in this room')}</div>
+    ${S.hist && S.hist.length > 1 ? `<div class="hist">${histHtml(5)}</div>` : ''}
+    ${c.me >= 0 ? `<div class="rbtns"><button class="btn pri" data-a="again">${tr('🔁 Nochmal', '🔁 Play again')}</button><button class="btn" data-a="menu">${tr('🎲 Nächstes Spiel', '🎲 Next game')}</button></div>` : ''}
+    <button class="linkbtn" data-a="view">${tr('Spielfeld ansehen', 'View the board')}</button></div>`;
+  document.body.appendChild(o);
+  requestAnimationFrame(() => o.classList.add('show'));
+  o.onclick = e => {
+    const b = e.target.closest('[data-a]');
+    if (!b) return;
+    if (b.dataset.a === 'again') dispatch({ t: 'again' });
+    if (b.dataset.a === 'menu') dispatch({ t: 'menu' });
+    removeOverlay();
+  };
 }
 function openOpts(id) {
   const G = GAMES[id];
@@ -1392,7 +1538,7 @@ function openOpts(id) {
   const st = G.opts.load();
   const m = document.createElement('div');
   m.className = 'modal';
-  m.innerHTML = `<div class="mbox"><h3>${G.icon} ${G.name}</h3><div class="mbody"></div><div class="mbtns"><button class="btn" data-x>Abbrechen</button><button class="btn pri" data-go>Los geht's!</button></div></div>`;
+  m.innerHTML = `<div class="mbox"><h3>${G.icon} ${L(G.name)}</h3><div class="mbody"></div><div class="mbtns"><button class="btn" data-x>${tr('Abbrechen', 'Cancel')}</button><button class="btn pri" data-go>${tr("Los geht's!", "Let's go!")}</button></div></div>`;
   document.body.appendChild(m);
   const body = $('.mbody', m), draw = () => G.opts.render(body, st, draw);
   draw();
@@ -1411,16 +1557,16 @@ setInterval(() => {
     if (S && S.game && !S.g.over) { const G = GAMES[S.game]; if (G.hostTick && G.hostTick(S.g)) { afterMove(); commit(); } }
   } else {
     const helloGap = net.reliable ? 3000 : 1500;
-    if (now - lastHello > helloGap && (!S || !inRoom() || (S.players.find(p => p.id === ME.id) || {}).name !== (ME.name || 'Spieler'))) {
-      if (!S || !inRoom() || S.players.some(p => p.id === ME.id)) { lastHello = now; net.sendAct({ f: ME.id, a: { t: 'hello', name: ME.name || 'Spieler' } }); }
+    if (now - lastHello > helloGap && (!S || !inRoom() || (S.players.find(p => p.id === ME.id) || {}).name !== (ME.name || 'Player'))) {
+      if (!S || !inRoom() || S.players.some(p => p.id === ME.id)) { lastHello = now; net.sendAct({ f: ME.id, a: { t: 'hello', name: ME.name || 'Player' } }); }
     }
-    if (!S) { const w = $('#wmsg'); if (w && now - joinAt > 8000) w.textContent = 'Noch keine Antwort. Stimmt der Code? Ist der Raum-Ersteller online?'; }
+    if (!S) { const w = $('#wmsg'); if (w && now - joinAt > 8000) w.textContent = tr('Noch keine Antwort. Stimmt der Code? Ist der Raum-Ersteller online?', 'No answer yet. Is the code right? Is the room creator online?'); }
   }
   const b = $('#banner');
-  if (b && S && !b.dataset.flash) {
+  if (b && S) {
     let txt = '';
-    if (!net.online()) txt = 'Keine Internetverbindung – warte …';
-    else if (!isHost && !net.reliable && now - lastStateAt > 10000) txt = 'Verbindung zum Raum-Ersteller unterbrochen – warte …';
+    if (!net.online()) txt = tr('Keine Internetverbindung – warte …', 'No internet connection – waiting …');
+    else if (!isHost && !net.reliable && now - lastStateAt > 10000) txt = tr('Verbindung zum Raum-Ersteller unterbrochen – warte …', 'Lost connection to the room creator – waiting …');
     if (b.textContent !== txt) b.textContent = txt;
   }
   if (S && S.game && S.g && GAMES[S.game].tick) GAMES[S.game].tick(S.g, mkCtx());
@@ -1439,7 +1585,7 @@ setInterval(() => {
     render();
     const h = (location.hash || '').slice(1).toLowerCase();
     const ci = $('#code');
-    if (ci && /^[a-z0-9]{4}$/.test(h)) { ci.value = h.toUpperCase(); homeMsg('Gib deinen Namen ein und tippe auf „Beitreten“.'); }
+    if (ci && /^[a-z0-9]{4}$/.test(h)) { ci.value = h.toUpperCase(); homeMsg(tr('Gib deinen Namen ein und tippe auf „Beitreten“.', 'Enter your name and tap “Join”.')); }
   }
 })();
 </script>
