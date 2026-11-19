@@ -1,0 +1,27 @@
+{
+  "rules": {
+    "rooms": {
+      ".read": "auth != null && query.orderByChild == 'meta/t' && query.limitToFirst <= 20",
+      ".indexOn": ["meta/t"],
+      "$code": {
+        ".read": "auth != null",
+        ".write": "auth != null && (data.child('meta/host').val() === auth.uid || (!newData.exists() && data.child('meta/t').val() < now - 86400000))",
+        "meta": {
+          ".write": "auth != null && (!data.exists() || data.child('host').val() === auth.uid)",
+          ".validate": "newData.child('host').val() === auth.uid && newData.child('t').isNumber()"
+        },
+        "state": {
+          ".write": "auth != null && root.child('rooms/' + $code + '/meta/host').val() === auth.uid",
+          ".validate": "newData.child('d').isString() && newData.child('d').val().length < 200000"
+        },
+        "acts": {
+          "$id": {
+            ".write": "auth != null && (!data.exists() || root.child('rooms/' + $code + '/meta/host').val() === auth.uid)",
+            ".validate": "root.child('rooms/' + $code + '/meta').exists() && newData.child('d').isString() && newData.child('d').val().length < 5000"
+          }
+        },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}
